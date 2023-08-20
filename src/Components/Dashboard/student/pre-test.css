@@ -1,0 +1,21 @@
+
+
+.pretTest{
+    padding-top: 13rem;
+        width: 100%;
+        background-image: url('../../images/lab.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #030447 !important;
+}
+.Uc2NEf{
+    width: 100%!important;
+}
+.pretTest .RVEQke{
+    background-color: transparent !important;
+}

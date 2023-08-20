@@ -1,0 +1,643 @@
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+
+@media only screen and (max-width: 767px){
+    
+
+.ContactUs{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: auto; 
+}
+
+.ContactUs .navbar-brand{
+  color: #152e45;
+  font-weight: 700;
+}
+
+
+.ContactUs .imgbg {
+background-image: url('../../images/contactus.jpg'), linear-gradient(rgba(8, 106, 133, 0.9),rgba(8, 106, 133, 0.9));
+background-blend-mode: overlay;
+background-size: cover;
+background-position: center;
+height: 500px;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+ 
+}
+
+.imgbg .navbar {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    background-color: #ffffff;
+    
+  }
+  .navbar-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .imgbg .navbar-toggler {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: .5s ease-in-out;
+    
+  }
+
+  .navbar-toggler,
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler-icon:focus{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .navbar-toggler span{
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggler-icon{
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #152e45;
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+ 
+
+  .nabvar-nav{
+    cursor: pointer;
+      max-height: 200px; /* Adjust the value as needed */
+      overflow-y: auto;
+  }
+
+  
+
+  .middle-bar{
+    margin-top: 0px;
+
+  }
+
+    
+/*when navigation is clicked*/
+.navbar-toggler .top-bar{
+  margin: 0px;
+  transform: rotate(135deg);
+}
+
+.navbar-toggler .middle-bar{
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.navbar-toggler .bottom-bar{
+  margin-top: 0px;
+  transform: rotate(-135deg);
+}
+
+
+/*state when the navbar is collapsed */
+.navbar-toggler.collapsed .top-bar{
+  margin-top: -20px;
+  transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar{
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+
+.navbar-toggler.collapsed .bottom-bar{
+   margin-top: 20px;
+   transform: rotate(0deg);
+}
+
+
+.scrollable-navbar {
+  max-height: 200px; /* Adjust the value as needed */
+  overflow-y: scroll;
+  padding-right: 15px;
+}
+
+
+
+
+
+
+
+
+
+  .imgbg .navbarLogo i{
+    color: #152e45;
+    margin: 2px;
+  }
+  .imgbg .contact{
+   margin-top: 5rem;
+   margin-bottom: 7rem;
+   color: #ffffff;
+   text-align: center;
+   width: 70%;
+   
+  }
+  .ContactUs .getinTouch{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .getinTouch .left{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .getinTouch .left p{
+    color: #bdbebe;
+    text-align: center;
+  }
+  .getinTouch .contact-details{
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .getinTouch .contact-item{
+    display: flex;
+   width: 12rem;    
+   margin: 10px;                    
+  }
+
+ 
+  .getinTouch .contactLogo{
+    width: 3rem;
+    height: 3rem;
+    background-color: #152e45;
+    color: #ffd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+
+  .getinTouch .contact-info-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+  }
+
+  .contact-info-wrapper .contact-label{
+    font-weight: 700;
+  }
+
+  .contact-info-wrapper .contact-info{
+    color: #bdbebe;
+  }
+
+  .getinTouch .social-media{
+    width: 70%;
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e6e3;
+    border-right: none; 
+    border-bottom: none; 
+    border-left: none;
+    margin-top: 3rem;
+  }
+  .getinTouch .mediaLogo{
+    margin-right: 3rem;
+  }
+  .getinTouch .mediaLogo i{
+   padding-left: 10px;
+ 
+  }
+
+  .getinTouch .form{
+    background-color: #e6f2f0;
+    height: 70vh;
+    padding: 3rem 0;
+    width: 100%;
+  
+  }
+
+  .getinTouch .form form{
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .getinTouch label{
+    font-weight: 700;
+    color: #152e45;
+  }
+
+  .getinTouch .input{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .getinTouch input{
+    border: none;
+    border-radius: 5px;
+    height: 3rem;
+  }
+
+  .getinTouch #name{
+    width: 50%;
+  }
+
+  .getinTouch #email{
+    width: 50%;
+  }
+
+  .getinTouch #phone{
+    width: 70%;
+  }
+
+  .getinTouch #message{
+    width: 70%;
+    height: 8rem;
+  }
+
+  .getinTouch .form button{
+    background-color: #152e45;
+    color: #ffffff;
+    width: 40%;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    height: 3rem;
+    font-weight: 500;
+  } 
+
+  .ContactUs .templates{
+    background-color: #152e45;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+     padding-top: 3rem;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     height: auto;
+   
+  }
+
+  .templates .subTemplates{
+    width: 90%;
+    border: none;  
+    border-bottom: 1px solid #ffffff;
+
+  } 
+  
+  
+   .nursee,
+  .Navigation,.quick-link,
+  .services{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subTemplates h6 {
+  margin-bottom: 1rem; /* Remove the default bottom margin for <h6> */
+}
+
+.subTemplates ul {
+  margin-top: 0; /* Remove the default top margin for <ul> */
+  padding: 0;
+  list-style: none;
+}
+
+.subTemplates li {
+  margin-bottom: 5px; /* Add space between the <li> elements */
+}
+
+.subTemplates span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px; /* Add space between the <ul> and <span> */
+}
+
+.subTemplates i {
+  margin-right: 5px; /* Add spacing between the icon and the phone number */
+}
+
+
+
+ .templates .final p{
+  display: flex;
+  margin-top: 20px;
+}
+
+
+}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*for pc screen-size */
+@media screen and (min-width: 1024px){
+.ContactUs {
+  display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: auto;
+}
+
+
+.ContactUs .navbar-brand{
+  color: #152e45;
+  font-weight: 700;
+}
+
+
+.ContactUs .imgbg {
+  background-image: url('../../images/contactus.jpg'), linear-gradient(rgba(8, 106, 133, 0.9),rgba(8, 106, 133, 0.9));
+  background-blend-mode: overlay;
+background-size: cover;
+width: 100%;
+background-position: center;
+height: 500px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.imgbg .navbar {
+  width: 90%;
+  margin: 0 auto;
+  height: 5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  background-color: #ffffff;
+ 
+}
+.imgbg .navbar-collapse{
+  margin-left: 20%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.imgbg .navbar-collapse ul{
+  padding-left:0 30%;
+}
+.imgbg .navbarLogo i{
+  color: #152e45;
+  margin: 10px;
+}
+.imgbg .contact{
+ margin-top: 5rem;
+ margin-bottom: 7rem;
+ color: #ffffff;
+ text-align: center;
+ width: 50%;
+ 
+}
+.ContactUs .getinTouch{
+  width: 100%;
+  margin: 5rem;
+}
+
+.getinTouch .left{
+  width: 85%;
+  height: 70vh;
+  padding-top: 2rem;
+}
+
+.getinTouch .left p{
+  color: #bdbebe;
+}
+
+.getinTouch .contact-details{
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.getinTouch .contact-item{
+  display: flex;
+ width: 20rem;    
+ margin: 10px;                    
+}
+
+.getinTouch .contactLogo{
+  width: 3rem;
+  height: 3rem;
+  background-color: #152e45;
+  color: #ffd700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+.getinTouch .contact-info-wrapper{
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+}
+
+.contact-info-wrapper .contact-label{
+  font-weight: 700;
+}
+
+.contact-info-wrapper .contact-info{
+  color: #bdbebe;
+}
+
+.getinTouch .social-media{
+  width: 70%;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e5e6e3;
+  border-right: none; 
+  border-bottom: none; 
+  border-left: none;
+  margin-top: 3rem;
+}
+.getinTouch .mediaLogo{
+  margin-right: 3rem;
+}
+.getinTouch .mediaLogo i{
+ padding-left: 10px;
+
+}
+
+
+.getinTouch .right{
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.getinTouch .form {
+  width: 100%;
+  background-color: #e6f2f0;
+  display: flex;
+ padding-top: 2rem;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+}
+.getinTouch .form form{
+  width: 90%;
+}
+.getinTouch .form label{
+  font-weight: 600;
+  color: #152e45;
+}
+.getinTouch #inputPhone{
+  height: 4rem;
+}
+.getinTouch #inputAddress2{
+  height: 6rem;
+}
+
+.getinTouch .form button{
+  background-color: #152e45;
+  font-weight: 400;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.ContactUs .templates{
+  background-color: #152e45;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+   padding-top: 5rem;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.ContactUs .subTemplates{
+  display: flex;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  height: 35vh;
+}
+
+
+.nursee {
+  flex: 2;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.templates .nursee span{
+  margin-top: 3rem;
+}
+
+.Navigation,
+.quick-link,
+.services {
+  flex: 1;
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.Navigation,
+.quick-link {
+  margin-right: 0;
+}
+
+.subTemplates h6 {
+  margin-bottom: 10px;
+}
+
+.subTemplates ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.subTemplates ul li {
+  margin-bottom: 5px;
+}
+
+.subTemplates span {
+  display: block;
+  margin-top: 10px;
+}
+
+.subTemplates .fa-solid,
+.fa-brands {
+  margin-right: 5px;
+  color: #ffd700;
+}
+
+.templates .final{
+  margin-top: 2rem;
+}
+}

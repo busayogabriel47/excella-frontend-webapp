@@ -1,0 +1,108 @@
+.serviceCol{
+    background-image: url("../../images/service-banner.png"), linear-gradient(rgba(8, 106, 133, 0.9),rgba(8, 106, 133, 0.9));
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
+  height: 500px;   
+  padding-top: 15rem;
+}
+
+.serviceCol h1{
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.serviceCol p,
+.serviceCol h1{
+    color: #fff;
+}
+
+.serviceRow{
+    margin: 5rem 0 12rem 0;
+}
+
+.accordion-item{
+    background-color: #fff;
+    color: #000;
+    outline: none;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.accordion-button:hover{
+    background-color: #030447;
+    color: #fff;
+}
+.accordion-button::after{
+    color: #fff;
+}
+.accordion-button:not(.collapsed){
+    background-color: #fff;
+    color: #fff;
+    background-color: #030447;
+    outline: none;
+}
+
+#questionNanswer{
+background-color: #E8F1F2;
+padding: 5rem 0;
+margin-top: 5rem;
+}
+
+
+/* Modal */
+.modal{
+    --bs-modal-width: 704px
+} 
+
+#midwives{
+    background-image: url('../../images/midwives.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 !important;
+}
+
+.modal-header button{
+    color: #fff !important;
+}
+.modal .order-md-2{
+    padding: 3rem;
+}
+.modal-header{
+    background: #030447;
+    color: #fff;
+    border: none;
+}
+
+.modal-body .form-control {
+    border: 2px solid #030447;
+}
+
+.modal-body .form-label{
+    color: #AF3693;
+    font-weight: bold;
+}
+
+.modal-body p{
+    color: #000;
+    font-weight: 400;
+}
+.modal-body button{
+    background-color: #030447;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+}
+
+input::-webkit-input-placeholder{
+	opacity: 1;
+    color: #030447 !important;
+    font-weight: bold;
+}
+ input:-ms-input-placeholder,
+input::-moz-placeholder{
+    color: #030447 !important;
+    font-weight: bold;
+}
+

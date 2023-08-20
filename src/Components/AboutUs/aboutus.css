@@ -1,0 +1,71 @@
+.AboutCol{
+    background-image: url('https://images.pexels.com/photos/8636601/pexels-photo-8636601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'), 
+    linear-gradient(rgba(8, 106, 133, 0.9),rgba(8, 106, 133, 0.9));
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.AboutCol h1{
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bolder;
+}
+.AboutCol p{
+    color: #AF3693;
+    font-weight: bold;
+}
+.whyUs{
+    margin: 7rem 0;
+}
+.whyUs p{
+    color: #030447;
+    font-weight: bolder;
+    line-height: 2rem;
+}
+.ourStory{
+    -webkit-box-shadow: 0px 1px 11px -3px rgba(53, 52, 52, 0.75);
+    -moz-box-shadow: 0px 1px 11px -3px rgba(53, 52, 52, 0.75);
+    box-shadow: 0px 1px 11px -3px rgba(53, 52, 52, 0.75);
+    background-color:#22C3E8 !important;
+}
+.ourStory {
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 30px; 
+    z-index: 200;
+    background-color: #fff;
+    margin: 5% 5%;
+
+}
+.ourStory h1{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #030447;
+}
+.ourStory p{
+    color: #fff;
+    text-transform: lowercase;
+}
+.aboutDetails{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.contact-item{
+    flex-basis: 100%;
+}
+.aboutDetails .fa-solid, .aboutDetails .fa-brands{
+    background: #152D47;
+    font-size: 1.5rem;
+    color: #FDD005;
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
