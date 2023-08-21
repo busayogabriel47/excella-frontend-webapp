@@ -69,7 +69,7 @@ const handleLogout = (e) => {
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-complaint" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Complain</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Notice/News</button>*/}
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 1</button>
-                                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 2</button>
+                                        <button class="nav-link" id="beginner-2" data-bs-toggle="pill" data-bs-target="#v-pills-beginners" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 2</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Mastery class</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Roloaded class</button> 
                                         <button class="nav-link" onClick={handleLogout} type="button" >Logout</button>
@@ -387,6 +387,18 @@ const handleLogout = (e) => {
                                     </div>
                                 </div>
 
+                                {/* NCLEX beginners 2*/}
+                                
+                                <div class="tab-pane fade" id="v-pills-beginners" role="tabpanel" aria-labelledby="v-pills-complaint" tabindex="0">
+                                    <div className='row'>
+                                        <div className='col-12 updates pl-0'>
+                                                <div className="pretTest">
+                                                <iframe className="d-none d-md-block test" src="https://docs.google.com/forms/d/e/1FAIpQLSdArTg5XKbEv0U01JNnGXiCmvsQkJQO9rheAi0hdeIJYzlxrg/viewform?embedded=true" width="1400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                                                <iframe className="d-block d-md-none test" src="https://docs.google.com/forms/d/e/1FAIpQLSdArTg5XKbEv0U01JNnGXiCmvsQkJQO9rheAi0hdeIJYzlxrg/viewform?embedded=true" width="400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

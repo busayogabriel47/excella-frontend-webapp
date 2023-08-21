@@ -55,7 +55,7 @@ const handleSubmitTrainer = async(e) => {
 
  await axios({
   method: 'post',
-  url: 'http://localhost:5000/api/trainer',
+  url: 'https://excella-api.onrender.com/api/trainer',
   data: signup,
 
   headers: {

@@ -57,7 +57,7 @@ const handleRegister = async(e) => {
 
  await axios({
   method: 'post',
-  url: 'http://localhost:5000/api/learner',
+  url: 'https://excella-api.onrender.com/api/learner',
   data: students,
 
   headers: {
