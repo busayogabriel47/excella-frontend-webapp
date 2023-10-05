@@ -357,3 +357,56 @@ button.bookNow {
     margin-top: 4rem;
   }
 }
+
+
+
+/* NewsTicker */
+
+.wrapper {
+  width: 85%;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  &:before {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    content: '';
+    background: linear-gradient(
+      90deg,
+      #fff,
+      transparent 25px,
+      transparent calc(100% - 25px),
+      #fff
+    );
+  }
+}
+
+.inner {
+  animation-duration: var(--animationDuration);
+  animation-timing-function: linear;
+}
+
+.inner.moving {
+  animation-name: moveticker;
+}
+
+.element {
+  display: inline-block;
+  padding: 0 20px;
+  font-family: 'Quicksand';
+  color: #030447;
+  font-weight: bold;
+}
+
+@keyframes moveticker {
+  0% {
+    transform: translateX(0px);
+  }
+  
+  100% {
+    transform: translateX(var(--animationDistance));
+  }
+}

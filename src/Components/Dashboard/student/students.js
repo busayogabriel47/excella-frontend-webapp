@@ -1,11 +1,48 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './students.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import DownloadCourse from './downloadCourse';
+import download from 'downloadjs';
+import axios from 'axios';
 // import {loginUser} from '../../../actions/adminUser'
 
 
 export default function Students() {
+
+
+    const [filesList, setFilesList] = useState([]);
+    const [errorMsg, setErrorMsg] = useState('');
+  
+    useEffect(() => {
+      const getFilesList = async () => {
+        try {
+          const { data } = await axios.get("http://localhost:5000/api/getAllFiles");
+          setErrorMsg('');
+          setFilesList(data);
+        } catch (error) {
+          error.response && setErrorMsg(error.response.data);
+        }
+      };
+  
+      getFilesList();
+    }, []);
+  
+    const downloadFile = async (id, path, mimetype) => {
+      try {
+        const result = await axios.get(`http://localhost:5000/api/download/${id}`, {
+          responseType: 'blob'
+        });
+        const split = path.split('/');
+        const filename = split[split.length - 1];
+        setErrorMsg('');
+        return download(result.data, filename, mimetype);
+      } catch (error) {
+        if (error.response && error.response.status === 400) {
+          setErrorMsg('Error while downloading file. Try again later');
+        }
+      }
+    };   
   
 const dispatch = useDispatch();
 
@@ -29,6 +66,8 @@ const handleLogout = (e) => {
     localStorage.removeItem("currentUser")
     window.location.href = "/login"
 }
+
+
 
 
     return (
@@ -72,6 +111,7 @@ const handleLogout = (e) => {
                                         <button class="nav-link" id="beginner-2" data-bs-toggle="pill" data-bs-target="#v-pills-beginners" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 2</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Mastery class</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Roloaded class</button> 
+                                        <button class="nav-link" id="v-pills-downloads-tab" data-bs-toggle="pill" data-bs-target="#v-pills-downloads" type="button" role="tab" aria-controls="v-pills-downloads" aria-selected="false">Downloads materials</button> 
                                         <button class="nav-link" onClick={handleLogout} type="button" >Logout</button>
                                     </div>
                                 </div>
@@ -396,6 +436,18 @@ const handleLogout = (e) => {
                                                 <iframe className="d-none d-md-block test" src="https://docs.google.com/forms/d/e/1FAIpQLSdArTg5XKbEv0U01JNnGXiCmvsQkJQO9rheAi0hdeIJYzlxrg/viewform?embedded=true" width="1400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                                                 <iframe className="d-block d-md-none test" src="https://docs.google.com/forms/d/e/1FAIpQLSdArTg5XKbEv0U01JNnGXiCmvsQkJQO9rheAi0hdeIJYzlxrg/viewform?embedded=true" width="400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                                                 </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Download Course tab*/}
+                                <div class="tab-pane fade" id="v-pills-downloads" role="tabpanel" aria-labelledby="v-pills-downloads" tabindex="0">
+                                    <div className='row'>
+                                        <div className='col-12 pl-0'>
+                                                <DownloadCourse
+                                                filesList={filesList}
+                                                errorMsg={errorMsg}
+                                                downloadFile={downloadFile}
+                                                />
                                         </div>
                                     </div>
                                 </div>

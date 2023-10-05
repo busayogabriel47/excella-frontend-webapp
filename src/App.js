@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -23,7 +23,7 @@ import Admin from './Components/Dashboard/admin/admin';
 import TrainerReg from './Components/RegistrationForm/trainerReg';
 import TeamPage from './Components/Team/team';
 import RegAdmin from './Components/RegistrationForm/adminReg';
-
+import newsItems from './Newticker/newticker';
 
 
 
@@ -31,7 +31,44 @@ import RegAdmin from './Components/RegistrationForm/adminReg';
 
 function App() {
 
-  const [services, setServices] = useState([]);
+const [services, setServices] = useState([]);
+
+const [items, setItems] = useState(newsItems);
+const [animationFlow, setAnimationFlow] = useState(false)
+const wrapperRef = useRef();
+const indexRef = useRef();
+
+
+const handleRefUpdate = useCallback(node => {
+  if(node !== null && items.length > 0){
+    indexRef.current = node.firstChild;
+    wrapperRef.current = node;
+
+    document.documentElement.style.setProperty('--animationDistance', `${0 -indexRef.current.offsetWidth}px`);
+    document.documentElement.style.setProperty('--animationDuration', `${Math.round(indexRef.current.offsetWidth / 33)}s`);
+    wrapperRef.current.classList.add('moving');
+  }
+}, [items]);
+
+
+const handleLoop = () => {
+  wrapperRef.current.classList.remove('moving');
+  wrapperRef.current.style.animation = 'none';
+  const t = wrapperRef.current.offsetHeight; /* trigger reflow */
+  wrapperRef.current.style.animation = null;
+  shiftNext([...items]);
+};
+
+
+const shiftNext = (copy) => {
+  const firstitem = copy.shift();
+  copy.splice(copy.length, 0, firstitem);
+  setItems(copy)
+}
+
+const handleAnimationEnd = () => {
+  handleLoop();
+}
 
   const serviceData = async () => {
     const result = await axios.get(
@@ -76,7 +113,9 @@ const currentPage=useRef()
       <Navbar/>
       <Routes>
 
-        <Route path='/' element={<Homepage services={services}/>}/>
+        <Route path='/' element={<Homepage services={services} 
+        handleRefUpdate={handleRefUpdate} 
+        handleAnimationEnd={handleAnimationEnd} items={items}/>}/>
         <Route path='/services' element={<Services services={services} 
         pageCount={pageCount} handlePageClick={handlePageClick}/>}/>
         <Route path='/aboutus' element={<Aboutus/>}/>

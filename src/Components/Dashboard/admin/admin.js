@@ -1,12 +1,87 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import '../student/students.css';
+import './admin.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import AddStudents from '../../RegistrationForm/addStudents';
 import AddTrainers from '../../RegistrationForm/addTrainer';
-
+import CourseUploads from './course-uploads';
+import { upload } from '@testing-library/user-event/dist/upload';
+import axios from 'axios';
 
 export default function Admin() {
+
+    const [file, setFile] = useState(null);
+    const [previewScr, setPreviewScr] = useState("")
+
+    const[inputState, setInputState] = useState({
+        title: "",
+        description: "" 
+    });
+    const [errorMsg, setErrorMsg] = useState('');
+    const [isPreview, setIsPreview] = useState(false);
+    const dropRef = useRef();
+
+
+    const handleInput = (e) => {
+        setInputState({
+            ...inputState,
+            [e.target.name]: e.target.value
+        })
+    }
+
+//Call this function when you click on file upload button
+const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const { title, description } = inputState;
+      if (title.trim() !== '' && description.trim() !== '') {
+        if (file) {
+          const formData = new FormData();
+          formData.append('file', file);
+          formData.append('title', title);
+          formData.append('description', description);
+  
+          setErrorMsg('');
+          await axios.post("http://localhost:5000/api/upload", formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+        } else {
+          setErrorMsg('Please select a file to add.');
+        }
+      } else {
+        setErrorMsg('Please enter all the field values.');
+      }
+    } catch (error) {
+      error.response && setErrorMsg(error.response.data);
+    }
+  };
+
+//update border color when image is drag into the
+//upload area
+const updateBorder = (dragState) => {
+    if (dragState === 'over') {
+      dropRef.current.style.border = '2px solid #000';
+    } else if (dragState === 'leave') {
+      dropRef.current.style.border = '2px dashed #e9ebeb';
+    }
+  };
+
+//onDrop function for drop files
+const onDrop = (files) => {
+    const [uploadedFile] = files;
+    setFile(uploadedFile);
+  
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setPreviewScr(fileReader.result);
+    };
+    fileReader.readAsDataURL(uploadedFile);
+    setIsPreview(uploadedFile.name.match(/\.(jpeg|jpg|png|mp4|mp3)$/));
+  };
   
 const dispatch = useDispatch();
 
@@ -56,14 +131,15 @@ const {currentUser} = useSelector(state => state.auth)
                             
                             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                                 <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+                                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Admin Dashboard</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body">
-                                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                         {/* <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</button> */}
                                         <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Student</button>
                                         <button class="nav-link" id="v-pills-trainer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-trainer" type="button" role="tab" aria-controls="v-pills-trainer" aria-selected="false">Add Trainer</button>
+                                        <button class="nav-link" id="v-pills-uploads-tab" data-bs-toggle="pill" data-bs-target="#v-pills-uploads" type="button" role="tab" aria-controls="v-pills-uploads" aria-selected="false">Upload materials</button>
                                         {/* <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-timetable" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">View Students</button>
                                         <button class="nav-link" id="v-view-trainer-tab" data-bs-toggle="pill" data-bs-target="#v-view-trainer" type="button" role="tab" aria-controls="v-view-trainer" aria-selected="false">View Trainers</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-course" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Course outline</button>
@@ -71,7 +147,7 @@ const {currentUser} = useSelector(state => state.auth)
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-complaint" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Complain</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Upload Notice</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-logout" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Logout</button> */}
-                                    </div>
+                                    
                                 </div>
                             </div>
                             </div>
@@ -133,6 +209,7 @@ const {currentUser} = useSelector(state => state.auth)
                                     </div>
                                 </div> */}
                                 {/* Add Student */}
+                                
                                 <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
                                     <div className='row'>
                                         <div className='col-12 attendance'>
@@ -145,6 +222,30 @@ const {currentUser} = useSelector(state => state.auth)
                                     <div className='row'>
                                         <div className='col-12 attendance'>
                                             <AddTrainers/>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Upload Course Materials*/}
+                                <div class="tab-pane fade" id="v-pills-uploads" role="tabpanel" aria-labelledby="v-pills-uploads-tab" tabindex="0">
+                                    <div className='row'>
+                                        <div className='col-12 attendance'>
+                                            <CourseUploads 
+                                            handleInput={handleInput}
+                                            handleSubmit={handleSubmit}
+                                            inputState={inputState}
+                                            previewScr={previewScr}
+                                            file={file}
+                                            setFile={setFile}
+                                            setInputState={setInputState}
+                                            errorMsg={errorMsg}
+                                            setErrorMsg={setErrorMsg}
+                                            isPreview={isPreview}
+                                            setIsPreview={isPreview}
+                                            setPreviewScr={setPreviewScr}
+                                            onDrop={onDrop}
+                                            dropRef={dropRef}
+                                            updateBorder={updateBorder}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -323,13 +424,12 @@ const {currentUser} = useSelector(state => state.auth)
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
   )

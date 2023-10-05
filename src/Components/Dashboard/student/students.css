@@ -62,8 +62,8 @@
     max-height: 100vh;
     margin-top: 10rem;
 }
-.offcanvas.offcanvas-start{
-    max-width: 250px !important;
+.offcanvas.offcanvas-start {
+    max-width: 269px !important;
 }
 .offcanvas-title{
     color: #030447;
@@ -205,4 +205,35 @@
 
 .pretTest .test{
     margin-top: -6rem
+}
+
+.download_heading h2{
+    font-size: 1.5rem;
+}
+tbody, td, tfoot, th, thead, tr{
+    border: 1px solid #000 !important;
+    padding: 1rem !important;
+}
+.files-container th{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.files-container{
+    margin-bottom: 5rem;
+}
+.download-btn{
+    background-color: #030447;
+    color: #fff;
+    border: 0;
+    line-height: 20px;
+    max-width: 150px;
+    max-height: 150px;
+}
+.download-btn:hover{
+    background-color: #fff;
+    color: #030447;
+    border: 1px solid #000;
+    line-height: 20px;
+    max-width: 150px;
+    max-height: 150px;
 }

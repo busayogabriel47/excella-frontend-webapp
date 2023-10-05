@@ -3,15 +3,23 @@ import "./home.css";
 import CountUp from 'react-countup';
 import Testimonial from '../Owl-slider/testimonial';
 import { Link } from 'react-router-dom';
+import {Element} from "../../Newticker/newticker"
 
 
 
-const Homepage = ({services}) => {
+const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
 
     return (
         <>
         {/*-----------------Call-to-Action------------------*/}
                 <div className='row'>
+                    <div className='newsTicker col-12'>
+                        <div className='wrapper'>
+                            <div className='inner' ref={handleRefUpdate} onAnimationEnd={handleAnimationEnd}>
+                                {items.map((obj, index)=> <Element title={obj.key} key={obj.key+index}/>)}
+                            </div>      
+                        </div>   
+                    </div>
                     <div className='col-12 col-md-6 text-center' id="ctaBG">
                         <img src={require('../../images/nurse-girl.png')}  width="100%"/>
                     </div>
