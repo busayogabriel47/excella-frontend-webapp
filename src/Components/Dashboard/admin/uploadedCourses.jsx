@@ -9,7 +9,7 @@ const UploadedCourses = () => {
   useEffect(() => {
     const getFilesList = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/getAllFiles");
+        const { data } = await axios.get("https://excella-api.onrender.com/api/getAllFiles");
         setErrorMsg('');
         setFilesList(data);
       } catch (error) {

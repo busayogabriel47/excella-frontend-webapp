@@ -17,7 +17,7 @@ export default function Students() {
     useEffect(() => {
       const getFilesList = async () => {
         try {
-          const { data } = await axios.get("http://localhost:5000/api/getAllFiles");
+          const { data } = await axios.get("https://excella-api.onrender.com/api/getAllFiles");
           setErrorMsg('');
           setFilesList(data);
         } catch (error) {
@@ -30,7 +30,7 @@ export default function Students() {
   
     const downloadFile = async (id, path, mimetype) => {
       try {
-        const result = await axios.get(`http://localhost:5000/api/download/${id}`, {
+        const result = await axios.get(`https://excella-api.onrender.com/api/download/${id}`, {
           responseType: 'blob'
         });
         const split = path.split('/');

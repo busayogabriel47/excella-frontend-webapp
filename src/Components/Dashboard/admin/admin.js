@@ -44,7 +44,7 @@ const handleSubmit = async (event) => {
           formData.append('description', description);
   
           setErrorMsg('');
-          await axios.post("http://localhost:5000/api/upload", formData, {
+          await axios.post("https://excella-api.onrender.com/api/upload", formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
