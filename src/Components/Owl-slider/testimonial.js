@@ -29,7 +29,7 @@ const Testimonial = () => {
 
     return (
 
-        <div className='ctmial owl-carousel' id='customer-testimonials'>
+        <div className='owl-carousel'>
             <OwlCarousel className="owl-theme"
               loop={true}
               

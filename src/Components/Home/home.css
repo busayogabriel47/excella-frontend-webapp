@@ -30,13 +30,14 @@ margin-top: 2rem;
   padding: 1.1rem 1.4rem;
 }
 
-.nurseBadge{
+.nurseBadge {
   background-color: #00BDDB;
   padding: 0 0.7rem;
-color: #fff;
+  color: #fff;
+  font-size: 3rem;
 }
-.ctaSecond h1{
-  font-size: 3.5rem;
+.ctaSecond h1 {
+  font-size: 2.2rem;
   color: #fff;
   font-weight: bold;
 }
@@ -159,8 +160,12 @@ button.bookNow {
 }
 
 /*--wcu-col-One--*/
-.wcuCard{
-  color: #030447;
+.wcuColOne{
+  color: #030447 !important;
+}
+ 
+.wcuCard, #wcuColTwo{
+  height: 395px !important;
 }
 .wcuColOne h6{
   
@@ -201,6 +206,10 @@ button.bookNow {
 }
 .privateTwo td{
   width: 35rem;
+}
+.privateTwo table,
+.privateTwo td {
+  border: none !important;
 }
 
 .privateTwo td h4, .itemDesc h4{
@@ -322,7 +331,6 @@ button.bookNow {
   background-color: #030447;
   background-position: center;
   background-size: cover;
-  height: 400px;
 }
 .navigation{
   padding-left: 6rem;

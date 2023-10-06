@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import Testimonial from '../Owl-slider/testimonial';
 import { Link } from 'react-router-dom';
 import {Element} from "../../Newticker/newticker"
+import Whychoose from '../Owl-slider/whychooseSlide';
 
 
 
@@ -21,16 +22,11 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                         </div>   
                     </div>
                     <div className='col-12 col-md-6 text-center' id="ctaBG">
-                        <img src={require('../../images/nurse-girl.png')}  width="100%"/>
+                        <img src={require('../../images/excella-image2.png')}  width="70%"/>
                     </div>
                     <div className='col-12 col-md-6 ctaSecond'>
-                        <h1><span className='nurseBadge'>Nurse</span>Here <br/>For Your Care</h1>
-                        <p className='my-4'>Lorem ipsum, dolor sit amet consectetur 
-                            adipisicing elit. Asperiores nam corrupti 
-                            odit saepe ducimus ipsam pariatur perferendis 
-                            odio sint, minus fuga voluptas possimus 
-                            sapiente quos doloribus consectetur ex 
-                            corporis dolores.
+                        <h1><span className='nurseBadge'>Excella Nursing Consult</span> Your <br/>Guide to NCLEX Mastery and USA Nursing Success.</h1>
+                        <p className='my-4'>
                         </p>
                         <button className='lmBtn'>Learn More <i class="fa-sharp fa-solid fa-right-long"></i></button> &nbsp;&nbsp;&nbsp;&nbsp;
                         <a className='popup-youtube' href='https://www.youtube.com/watch?v=TuoNvPPnr2o'><i class="fa-solid fa-play"></i></a>
@@ -71,7 +67,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                 <div className='row wcuOne'>
                     <div className='col-12 col-md-8 mt-5'>
                         <h2>Why Choose Excella</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ab optio beatae natus corrupti illo nesciunt adipisci alias, reiciendis ducimus repudiandae odio magni</p>
+                        <p>Nursing students can benefit from the expertise, personalized approach, comprehensive resources, supportive learning environment, and a proven track record of success that sets us apart from our competitors.</p>
                     </div>
                     <div className='col-12 col-md-4 mt-5'>
                         <button className='wcuBtn'>LEARN MORE <i class="fa-sharp fa-solid fa-right-long"></i></button> 
@@ -79,42 +75,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                 </div>
 
 
-                <div className='row wcuTwo'>
-                    <div className='col-12 col-md-4 wcuColOne'>
-                        <div className='wcuCard' style={{width: "22rem"}}>
-
-                        <img src={require('../../images/certificate.png')} width="20%"/> 
-                        <h6>Certificated</h6>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing 
-                        elit. Dolor debitis assumenda facilis praesentium numquam, 
-                        velit animi eius ex rerum. Distinctio impedit facilis</p>
-                        {/* <button className='aBtn'>Learn More <i class="fa-sharp fa-solid fa-right-long"></i></button> */}
-                        </div>
-                    </div>
-
-                    <div className='col-12 col-md-4 wcuColOne'>
-                        <div style={{width: "22rem"}} id='wcuColTwo'>
-                            <img src={require('../../images/nurse.png')} width="20%"/> 
-                            <h6>Professional Nurse</h6>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing 
-                            elit. Dolor debitis assumenda facilis praesentium numquam, 
-                            velit animi eius ex rerum. Distinctio impedit facilis</p>
-                            {/* <button className='aBtn'>Learn More <i class="fa-sharp fa-solid fa-right-long"></i></button> */}
-                        </div>
-                    </div>
-
-                    <div className='col-12 col-md-4 wcuColOne'>
-                        <div className='wcuCard' style={{width: "22rem"}}>
-                            <img src={require('../../images/care.png')} width="20%"/> 
-                            <h6>Friendly Service</h6>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing 
-                            elit. Dolor debitis assumenda facilis praesentium numquam, 
-                            velit animi eius ex rerum. Distinctio impedit facilis</p>
-                            {/* <button className='aBtn'>Learn More <i class="fa-sharp fa-solid fa-right-long"></i></button> */}
-                        </div>
-                    </div>
-
-                </div>
+                <Whychoose/>
 
 
             </div>
@@ -160,23 +121,20 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                     {/* Private coaching column two*/}
                     <div className='col-12 col-md-6 privateTwo'>
                         <h1>Know More About Our Nursing Coaching</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                            sed do eiusmod tempor incididunt ut labore et dolore magna 
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                            ullamco laboris nisi ut aliquip ex ea commodo.
+                        <p>Dear Nurses, As the CEOs/Directors of Excella Nursing Consult, we are excited to share with you the exceptional courses we offer at our academy. At Excella, our mission is to empower internationally trained nurses and aspiring nursing professionals to excel in their careers and achieve their goals.
                         </p>
                         <ul>
-                            <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint.</li>
-                            <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint.</li>
+                            <li>Personalized Approach: Receive a tailored learning experience that caters to your individual needs, strengths, and areas for improvement.</li>
+                            <li>Networking Opportunities: Connect with fellow nursing professionals, build relationships</li>
                         </ul>
 
                        <table>
                             <tr>
                                 <td>
-                                    <h4>Remi Mackenzie</h4>
+                                    <h4>Odira Iheoma</h4>
                                 </td>
                                 <td>
-                                    <h6>Remi Makinde</h6>
+                                    <h6>Evelyn Anasioke</h6>
                                 </td>
                             </tr>
                        </table>
@@ -200,7 +158,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                             <img src={require('../../images/profession.png')} width="50px"/>
                         </div>
                         <div className='yoeInner'>
-                            <CountUp start={0} end={23} duration={4.5} delay={1}/>
+                            <CountUp start={0} end={5} duration={4.5} delay={1}/>
                             <p>Years of Experience</p>
                         </div>
                     </div>

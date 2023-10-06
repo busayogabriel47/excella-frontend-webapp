@@ -22,11 +22,11 @@ const Aboutus = () => {
                             <h1 className='mb-5'>Why Us?</h1>
 
                             <p>
-                                To provide a safe and enjoyable environment for all of our clients and work with our clients to achieve the results to services they request, while focusing their hair, nail, and skin health.
+                            By choosing Excella's Nursing Consult, intending/prospective clients/students/Nurses can benefit from the expertise, personalized approach
                             </p>
 
                             <p>
-                                Sample text. Click to Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. Pharetra magna ac placerat vestibulum. Quam lacus suspendisse faucibus interdum posuere lorem. Egestas tellus rutrum tellus pellentesque eu tincidunt. Neque vitae tempus quam pellentesque nec.
+                            comprehensive resources, supportive learning environment, and a proven track record of success that sets us apart from our competitors.
                             </p>
 
                 </div>
