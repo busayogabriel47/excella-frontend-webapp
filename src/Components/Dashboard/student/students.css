@@ -237,3 +237,4 @@ tbody, td, tfoot, th, thead, tr{
     max-width: 150px;
     max-height: 150px;
 }
+.errorMsg{color: #ff0000;}

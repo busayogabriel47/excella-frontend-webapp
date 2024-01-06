@@ -2,43 +2,40 @@ import '../RegistrationForm/reg.css'
 import React,{useState, useRef, useEffect} from 'react'
 import {useDispatch, useSelector}  from 'react-redux'
 import {reset}  from '../../reduxtk/authSlice'
-import { student } from '../../reduxtk/authAction'
 import {useForm} from "react-hook-form"
 import {toast} from 'react-toastify'
+import axios from 'axios'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 //Register component;
 const Addstudents = () => {
 
-  const {register, handleSubmit, reset } = useForm();
+  const {register, handleSubmit, reset, formState:{errors}} = useForm();
+  const [isLoading, setIsLoading] = useState(false)
 
-    const [resetForm, setResetForm] = useState(false)
+const submitForm = async(data, e) => {
 
-//reset input field after form submission
-
-
-
-const dispatch = useDispatch();
-
-const {isLoading, isSuccess, isError, user, message} = useSelector((state)=> state.auth)
-
-useEffect(()=> {
-  if(isError){
-    toast.error(message)
-  }
-
-  if(isSuccess){
-    toast.success(message)
-  }
-
-}, [isError, isSuccess, message, dispatch])
-
-
-const submitForm = (data, e) => {
   data.email = data.email.toLowerCase()
-  dispatch(student(data))
-  e.target.reset()
-  console.log(data)
+
+try {
+  //Make api call to student login endpoint
+  const response = await axios.post("https://excella-api.onrender.com/api/addStudent", data)
+  
+  toast.success("Registration successful")
+  console.log('Login successful:', response.data);
+} catch (error) {
+  if(error.response){
+    console.error('Server error:', error.response.data);
+    toast.error("Registration failed, try again")
+  }else if(error.request){
+    console.log('No response from server:', error.request)
+  }else{
+    console.log('Request error:', error.message)
+  }
+}
+
+
 }
 
 
@@ -50,7 +47,6 @@ const submitForm = (data, e) => {
     <div className="regdiv">
         <h3>ADD STUDENT</h3>
 
-            {isError && <p>{isError}</p>}
             <input type='text'
             className="form-control"
             {...register('firstname')}
@@ -82,34 +78,6 @@ const submitForm = (data, e) => {
             {...register('course')}
              placeholder='Course enrolled' required/><br/>
 
-            <input type='text'
-             className="form-control"
-            {...register('cohort')}
-             placeholder='Cohort' required/><br/>
-
-            <input type='text'
-             className="form-control"
-            {...register('class_No')}
-             placeholder='Class number' required/><br/>
-
-            {/* <div>
-                <label>Admin ?</label>
-                <label htmlFor='admin'>
-                    Admin
-                    <input type='radio'
-                    value="true"
-                    id='admin'
-                    {...register("isAdmin", {required: true})}/>
-                </label>
-
-                <label htmlFor='NotAdmin'>
-                    Not Admin
-                    <input type='radio'
-                    value="false"
-                    id='NotAdmin'
-                    {...register("isAdmin", {required: true})}/>
-                </label>
-            </div> */}
                 
             <div className='regBtn'>
                   <button type='submit' disabled={isLoading}>

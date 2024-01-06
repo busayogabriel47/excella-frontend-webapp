@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import './students.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import DownloadCourse from './downloadCourse';
 import download from 'downloadjs';
 import axios from 'axios';
+import PreTest from '../student/pretest';
+import {decodeToken} from "../../../Utils/StudentAuth"
 // import {loginUser} from '../../../actions/adminUser'
 
 
 export default function Students() {
+    const {studentId} = useParams()
 
-
+    const [studentData, setStudentData] = useState(null);
     const [filesList, setFilesList] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
+
   
-    useEffect(() => {
-      const getFilesList = async () => {
+    const getFilesList = async () => {
         try {
           const { data } = await axios.get("https://excella-api.onrender.com/api/getAllFiles");
           setErrorMsg('');
@@ -24,9 +27,48 @@ export default function Students() {
           error.response && setErrorMsg(error.response.data);
         }
       };
-  
-      getFilesList();
-    }, []);
+
+      
+
+    useEffect(() => {
+
+        const fetchStudentData = async () => {
+            try{
+                const studentDataString = localStorage.getItem("user");
+                if(!studentDataString){
+                    console.log("Student is not logged in");
+                    return; // Exist if student is not logged in
+                }
+
+                const studentString = JSON.parse(studentDataString);
+                const studentToken = studentString.token;
+                console.log('studentToken:', studentToken);
+
+                const decodedToken = decodeToken(studentToken);
+                console.log('decodedToken:', decodedToken);
+
+                if(!decodedToken || decodedToken.role !== 'student'){
+                    console.log('User is not a student');
+                    return; //Exist if the user is not a student
+                }
+
+                console.log('Student logged in has the role of student');
+
+                const response = await axios.get(`https://excella-api.onrender.com/api/student/${decodedToken._id}`, {
+                    headers: {
+                        Authorization: `Bearer ${studentToken}`
+                    }
+                })
+                 setStudentData(response.data);
+            }catch (error) {
+                console.log('Error fetching student data:', error);
+            }
+        }
+
+        
+        fetchStudentData()
+        getFilesList();
+    }, [studentId]);
   
     const downloadFile = async (id, path, mimetype) => {
       try {
@@ -44,20 +86,13 @@ export default function Students() {
       }
     };   
   
-const dispatch = useDispatch();
 
-//   useEffect(()=> {
-//     if(localStorage.getItem("user")){
-//         const userId = JSON.parse(localStorage.getItem("user")).user._id;
-//         dispatch(loginUser(userId))
-//     }
-//   }, [])
 
-  const {currentUser} = useSelector(state => state.auth)
-
+  const user = localStorage.getItem("user")
+ 
   
     // protected route
-    if(!currentUser){
+    if(!user){
         return <Navigate to="/login"/>
     }
 
@@ -67,7 +102,22 @@ const handleLogout = (e) => {
     window.location.href = "/login"
 }
 
+if(!studentData){
+    return(
+        <div className='container'>
+            <div className='row'>
+                <div className='col-12'>
+                    <div class="spinner-border m-5" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    )
+}
 
+  const {cohorts} = studentData;
 
 
     return (
@@ -107,10 +157,20 @@ const handleLogout = (e) => {
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-result" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Results</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-complaint" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Complain</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Notice/News</button>*/}
-                                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 1</button>
-                                        <button class="nav-link" id="beginner-2" data-bs-toggle="pill" data-bs-target="#v-pills-beginners" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 2</button>
+                                        
+                                                <button class="nav-link" id="v-pills-settings-tab" 
+                                                data-bs-toggle="pill" data-bs-target="#v-pills-updates" 
+                                                type="button" role="tab" aria-controls="v-pills-settings" 
+                                                aria-selected="false">
+                                                    {
+                                                    cohorts.length > 0 ? cohorts[0].name : null
+                                                    }
+                                                </button>
+                            
+                                        
+                                        {/* <button class="nav-link" id="beginner-2" data-bs-toggle="pill" data-bs-target="#v-pills-beginners" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 2</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Mastery class</button>
-                                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Roloaded class</button> 
+                                        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Roloaded class</button>  */}
                                         <button class="nav-link" id="v-pills-downloads-tab" data-bs-toggle="pill" data-bs-target="#v-pills-downloads" type="button" role="tab" aria-controls="v-pills-downloads" aria-selected="false">Downloads materials</button> 
                                         <button class="nav-link" onClick={handleLogout} type="button" >Logout</button>
                                     </div>
@@ -412,33 +472,6 @@ const handleLogout = (e) => {
                                     </div>
                                 </div> */}
 
-
-
-                                {/* NCLEX beginners 1*/}
-
-                                <div class="tab-pane fade show active" id="v-pills-updates" role="tabpanel" aria-labelledby="v-pills-complaint" tabindex="0">
-                                    <div className='row'>
-                                        <div className='col-12 updates pl-0'>
-                                        <div className="pretTest">
-                                                <iframe className="d-none d-md-block test" src="https://docs.google.com/forms/d/e/1FAIpQLScAWMcTGLufo7fvMUvKLkHsBFJmUtLC0qnjlz3ZDgqMqMDuPQ/viewform?embedded=true" width="1400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                                                <iframe className="d-block d-md-none test" src="https://docs.google.com/forms/d/e/1FAIpQLScAWMcTGLufo7fvMUvKLkHsBFJmUtLC0qnjlz3ZDgqMqMDuPQ/viewform?embedded=true" width="400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* NCLEX beginners 2*/}
-                                
-                                <div class="tab-pane fade" id="v-pills-beginners" role="tabpanel" aria-labelledby="v-pills-complaint" tabindex="0">
-                                    <div className='row'>
-                                        <div className='col-12 updates pl-0'>
-                                                <div className="pretTest">
-                                                <iframe className="d-none d-md-block test" src="https://docs.google.com/forms/d/e/1FAIpQLSdArTg5XKbEv0U01JNnGXiCmvsQkJQO9rheAi0hdeIJYzlxrg/viewform?embedded=true" width="1400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                                                <iframe className="d-block d-md-none test" src="https://docs.google.com/forms/d/e/1FAIpQLSdArTg5XKbEv0U01JNnGXiCmvsQkJQO9rheAi0hdeIJYzlxrg/viewform?embedded=true" width="400" height="10603" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 {/* Download Course tab*/}
                                 <div class="tab-pane fade" id="v-pills-downloads" role="tabpanel" aria-labelledby="v-pills-downloads" tabindex="0">
                                     <div className='row'>
@@ -447,11 +480,16 @@ const handleLogout = (e) => {
                                                 filesList={filesList}
                                                 errorMsg={errorMsg}
                                                 downloadFile={downloadFile}
+                                                studentData={studentData}
                                                 />
                                         </div>
                                     </div>
                                 </div>
-
+                                {/* NCLEX beginners 1*/}
+                                <div class="tab-pane fade show active" id="v-pills-updates" role="tabpanel" aria-labelledby="v-pills-complaint" tabindex="0">
+                                    <PreTest studentData={studentData}/>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

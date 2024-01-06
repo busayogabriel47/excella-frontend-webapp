@@ -22,7 +22,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                         </div>   
                     </div>
                     <div className='col-12 col-md-6 text-center' id="ctaBG">
-                        <img src={require('../../images/excella-image2.png')}  width="70%"/>
+                        <img src={require('../../images/excella-nurse-1-short.png')}  width="70%"/>
                     </div>
                     <div className='col-12 col-md-6 ctaSecond'>
                         <h1><span className='nurseBadge'>Excella Nursing Consult</span> Your <br/>Guide to NCLEX Mastery and USA Nursing Success.</h1>
@@ -74,9 +74,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                     </div>
                 </div>
 
-
                 <Whychoose/>
-
 
             </div>
         </div>
@@ -93,11 +91,11 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                             <div className='col-6'>
                                 <div className='row'>
                                     <div className='col-12 p-0'>
-                                        <div className='tileOne'><img src={require("../../images/student-nurse.jpg")} width="100%"/></div>
+                                        <div className='tileOne'><img src={require("../../images/excellanurse6.jpeg")} width="100%"/></div>
                                     </div>
                                     <div className='col-12 p-0'>
                                         <div className='tileThree'>
-                                            <img src={require("../../images/private3.jpg")} width="100%"/>
+                                            <img src={require("../../images/excellanurse2.jpeg")} width="100%"/>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +104,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                                     <div className='row'>
                                         <div className='col-12 p-0'>
                                             <div className='tileTwo'>
-                                                <img src={require("../../images/student1.jpg")} width="100%"/>
+                                                <img src={require("../../images/excellanurse7.png")} width="100%"/>
                                             </div>
                                         </div>
                                         <div className='col-12 p-0'>
@@ -134,7 +132,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                                     <h4>Odira Iheoma</h4>
                                 </td>
                                 <td>
-                                    <h6>Evelyn Anasioke</h6>
+                                    <h4>Evelyn Anasioke</h4>
                                 </td>
                             </tr>
                        </table>
@@ -213,7 +211,7 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                         <div className='col-12 col-md-4 mt-5'>
                             <div id='serviceOne' style={{backgroundImage: `url(${service.img})`}}>
                                 <div className='homeCare'>
-                                    <img src={service.icon} width="60px"/>
+                                    <img src={service.icon} width="60px" alt=''/>
                                     <h2>{service.title}</h2>
                                     <p>{service.description.substring(0, 80)}</p>
                                     <button className='aBtn'><Link to={`/services/${service.title}`}>Learn More </Link><i class="fa-sharp fa-solid fa-right-long"></i></button>
@@ -241,8 +239,9 @@ const Homepage = ({services, handleAnimationEnd, items, handleRefUpdate}) => {
                 <Testimonial/>
             </div>
             <div className='col-12 col-md-6 text-center'>
-                <iframe className='d-block d-md-none' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.6950613381203!2d3.365035033246073!3d6.631893203689388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93bd9a588b63%3A0x14ac4e124cfb430b!2sMichael%20Otedola%20Jubilee%20Estate%2C%20Olowora%20105102%2C%20Lagos!5e0!3m2!1sen!2sng!4v1686141761216!5m2!1sen!2sng" width="400" height="300" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <iframe className='d-none d-md-block' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.6950613381203!2d3.365035033246073!3d6.631893203689388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93bd9a588b63%3A0x14ac4e124cfb430b!2sMichael%20Otedola%20Jubilee%20Estate%2C%20Olowora%20105102%2C%20Lagos!5e0!3m2!1sen!2sng!4v1686141761216!5m2!1sen!2sng" width="700" height="300" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+                <iframe className='d-block d-md-none' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220431.6469208566!2d-82.06194748773972!3d37.978231281068744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884cd670bdbcb2cd%3A0xc04e4149b746a695!2sVirginia%2C%20USA!5e0!3m2!1sen!2sng!4v1698535304465!5m2!1sen!2sng" width="400" height="300" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe className='d-none d-md-block' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220431.6469208566!2d-82.06194748773972!3d37.978231281068744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884cd670bdbcb2cd%3A0xc04e4149b746a695!2sVirginia%2C%20USA!5e0!3m2!1sen!2sng!4v1698535304465!5m2!1sen!2sng" width="700" height="300" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

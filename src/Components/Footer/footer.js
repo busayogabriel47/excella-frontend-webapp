@@ -11,8 +11,8 @@ const Footer = () => {
 <div className='container'>
     <div className='row text-white'>
             <div className="col-12 col-md-3 my-5 fLogo">
-                <img src={require('../../images/excella-logo.png')} width="300px"/>
-                <p>At Excella's Nursing Consultant, we prioritize your success in the NCLEX exams. Our dedicated team of experienced instructors and Nursing professionals is here to guide and support you every step of the way.</p>
+                <img src={require('../../images/excella-logo.png')} width="300px" alt='excella-logo'/>
+                <p>At Excella Nursing Consultant, we prioritize your success in the NCLEX exams. Our dedicated team of experienced instructors and Nursing professionals is here to guide and support you every step of the way.</p>
 
                 <i class="fa-solid fa-location-dot mt-5"></i> <span>Virginia, USA</span>
             </div>
@@ -38,7 +38,7 @@ const Footer = () => {
                     <li><Link className="f_link" to="/">Pages</Link></li>
                 </ul>
 
-                <i class="fa-solid fa-envelope-open-text mt-5"></i> <span>excellanursingconsult@gmail.com</span>
+                <i class="fa-solid fa-envelope-open-text mt-5"></i> <span>support@excellanursing.com</span>
             </div>
 
             <div className="col-12 col-md-3 my-5 navigation">

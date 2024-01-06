@@ -10,7 +10,7 @@ return (
 
 <nav class="navbar navbar-expand-lg" id="navigation">
   <div class="container">
-    <Link to="/" class="navbar-brand" href="#"><img src={require("../../images/excella-logo.png")} width="150px"/> </Link>
+    <Link to="/" class="navbar-brand" href="#"><img src={require("../../images/excella-logo.png")} width="150px" alt="excella-logo"/> </Link>
     <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="toggler-icon top-bar"></span>
       <span class="toggler-icon middle-bar"></span>

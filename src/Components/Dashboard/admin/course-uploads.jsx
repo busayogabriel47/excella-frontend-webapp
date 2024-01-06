@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './admin.css';
 import Dropzone from 'react-dropzone';
 import UploadedCourses from './uploadedCourses';
+import axios from 'axios';
 
 
 
@@ -23,8 +24,47 @@ function CourseUploads(
     updateBorder
 }
     ) {
+
+
+     const [cohorts, setCohorts] = useState([])
+     const [selectedCohort, setSelectedCohort] = useState("");
+
+        useEffect(()=> {
+            fetchCohorts()
+        },[])
+
+
+     const fetchCohorts = async () => {
+        try{
+          const response = await axios.get('https://excella-api.onrender.com/api/cohorts');
+          setCohorts(response.data);
+        }catch(error){
+          console.error('Error fetching cohort', error)
+        }
+      }
+
+      const handleCohortSelection = (selectedCohort) => {
+        console.log("Selected Cohort ID:", selectedCohort);
+        setInputState((prevInputState)=> ({
+            ...prevInputState,
+            cohortId: selectedCohort
+        }))
+      }
+
   return (
     <div className='row'>
+        <div className='col-12'>
+            <div className='selectCohort'>
+                <h1>Select cohort</h1>
+
+                <select onChange={(e)=> handleCohortSelection(e.target.value)} value={inputState.cohortId}>
+                <option value="">Select Cohort</option>
+                {cohorts.map((cohort)=> (
+                    <option key={cohort._id} value={cohort._id}>{cohort.name}</option>
+                ))}
+                </select>
+            </div>
+        </div>
         {/* Upload courses column*/}
         <div className='col-12'>
                 <div className='uploads_wrapper'>

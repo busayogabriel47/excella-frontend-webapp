@@ -2,7 +2,7 @@
   "name": "excella",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://excella-consult.netlify.app/",
+  "homepage": "http://excellanursing.com",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -13,6 +13,7 @@
     "base-64": "^1.0.0",
     "clsx": "^2.0.0",
     "downloadjs": "^1.4.7",
+    "jwt-decode": "^4.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-countup": "^6.4.2",

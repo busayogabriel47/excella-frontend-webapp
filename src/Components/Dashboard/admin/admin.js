@@ -6,8 +6,12 @@ import { Navigate } from 'react-router-dom';
 import AddStudents from '../../RegistrationForm/addStudents';
 import AddTrainers from '../../RegistrationForm/addTrainer';
 import CourseUploads from './course-uploads';
+import StudendInfo from './StudentInfor';
 import { upload } from '@testing-library/user-event/dist/upload';
 import axios from 'axios';
+import AddCohort from './AddCohort';
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Admin() {
 
@@ -16,7 +20,8 @@ export default function Admin() {
 
     const[inputState, setInputState] = useState({
         title: "",
-        description: "" 
+        description: "",
+        cohortId: ""
     });
     const [errorMsg, setErrorMsg] = useState('');
     const [isPreview, setIsPreview] = useState(false);
@@ -33,23 +38,31 @@ export default function Admin() {
 //Call this function when you click on file upload button
 const handleSubmit = async (event) => {
     event.preventDefault();
-  
+    
     try {
-      const { title, description } = inputState;
+      const { title, description} = inputState;
+      const cohortId = inputState.cohortId;
+      console.log("Current Cohort ID in State:", inputState.cohortId);
+
       if (title.trim() !== '' && description.trim() !== '') {
         if (file) {
           const formData = new FormData();
           formData.append('file', file);
           formData.append('title', title);
           formData.append('description', description);
+          formData.append('cohortId', cohortId);  //include cohortId in the FormData
   
           setErrorMsg('');
           await axios.post("https://excella-api.onrender.com/api/upload", formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
-          });
+          }
+          );
+
+          toast.success("Material uploaded successfully")
         } else {
+            toast.error("Material upload failed. try again.")
           setErrorMsg('Please select a file to add.');
         }
       } else {
@@ -139,9 +152,10 @@ const {currentUser} = useSelector(state => state.auth)
                                         {/* <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</button> */}
                                         <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Add Student</button>
                                         <button class="nav-link" id="v-pills-trainer-tab" data-bs-toggle="pill" data-bs-target="#v-pills-trainer" type="button" role="tab" aria-controls="v-pills-trainer" aria-selected="false">Add Trainer</button>
+                                        <button class="nav-link" id="v-pills-studentInfo-tab" data-bs-toggle="pill" data-bs-target="#v-pills-studentInfo" type="button" role="tab" aria-controls="v-pills-studentInfo" aria-selected="false">Student Info</button>
                                         <button class="nav-link" id="v-pills-uploads-tab" data-bs-toggle="pill" data-bs-target="#v-pills-uploads" type="button" role="tab" aria-controls="v-pills-uploads" aria-selected="false">Upload materials</button>
-                                        {/* <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-timetable" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">View Students</button>
-                                        <button class="nav-link" id="v-view-trainer-tab" data-bs-toggle="pill" data-bs-target="#v-view-trainer" type="button" role="tab" aria-controls="v-view-trainer" aria-selected="false">View Trainers</button>
+                                        <button class="nav-link" id="v-pills-cohort-tab" data-bs-toggle="pill" data-bs-target="#v-pills-cohort" type="button" role="tab" aria-controls="v-pills-cohort" aria-selected="false">Add Cohorts/Classes</button>
+                                        {/*<button class="nav-link" id="v-view-trainer-tab" data-bs-toggle="pill" data-bs-target="#v-view-trainer" type="button" role="tab" aria-controls="v-view-trainer" aria-selected="false">View Trainers</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-course" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Course outline</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-result" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Results</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-complaint" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Complain</button>
@@ -218,10 +232,18 @@ const {currentUser} = useSelector(state => state.auth)
                                     </div>
                                 </div>
                                 {/* Add Trainer */}
-                                <div class="tab-pane fade" id="v-pills-trainer" role="tabpanel" aria-labelledby="v-pills-trainer-tab" tabindex="0">
+                                <div class="tab-pane how" id="v-pills-trainer" role="tabpanel" aria-labelledby="v-pills-trainer-tab" tabindex="0">
                                     <div className='row'>
                                         <div className='col-12 attendance'>
                                             <AddTrainers/>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Studen infor*/}
+                                <div class="tab-pane how" id="v-pills-studentInfo" role="tabpanel" aria-labelledby="v-pills-studentInfo-tab" tabindex="0">
+                                    <div className='row'>
+                                        <div className='col-12 attendance'>
+                                            <StudendInfo/>
                                         </div>
                                     </div>
                                 </div>
@@ -402,24 +424,12 @@ const {currentUser} = useSelector(state => state.auth)
                                     </div>
                                 </div>
 
-                                {/* Upload notice/updates */}
-                                <div class="tab-pane fade" id="v-pills-updates" role="tabpanel" aria-labelledby="v-pills-complaint" tabindex="0">
+                                {/* Upload Cohorts/Classes */}
+                                <div class="tab-pane fade" id="v-pills-cohort" role="tabpanel" aria-labelledby="v-pills-cohort" tabindex="0">
                                     <div className='row'>
-                                        <div className='col-12 updates'>
-                                            <div className='notice'>
-                                                <form>
-                                                        <div class="mb-3">
-                                                            <label for="title" class="form-label">Notice Title</label>
-                                                            <input type="email" class="form-control" id="title" placeholder="name@example.com"/>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="notice" class="form-label">Write Notice/updates here</label>
-                                                            <textarea class="form-control" id="notice" rows="3"></textarea>
-                                                        </div>
-                                                        <div class="mb-3 regBtn">
-                                                            <button type='submit'>Submit update</button>
-                                                        </div>
-                                                </form>
+                                        <div className='col-12 cohort'>
+                                            <div className='addCohort'>
+                                                <AddCohort/>
                                             </div>
                                         </div>
                                     </div>

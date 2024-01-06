@@ -64,4 +64,50 @@
     display: flex;
     align-items: center;
 }
+.complaint, .cohort{
+  display: flex;
+  justify-content: center;
+}
+.complaint form{
+  margin: 2rem 0 !important;
+  padding-top: 3rem;
+}
+.addCohort{
+  width: 100%;
+}
+.cohortWraper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+}
+.cohortForm{
+  width: 60%;
+}
+.download_heading, .cohortHeader{
+  display: flex;
+  justify-content: space-between;
+}
+.assignCohort select{
+  width: 100%;
+} 
+
+.cohortHeader{
+  margin: 4rem 0;
+}
+
+.cohortHeader button{
+  background-color: #030447;
+}
+
+.cohortImTop{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+
+
+
 

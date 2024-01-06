@@ -1,7 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import './App.css';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
 import Homepage from './Components/Home/home';
 import Navbar from './Components/Navbar/Navbar';
 import {Routes, Route} from "react-router-dom";
@@ -24,6 +22,9 @@ import TrainerReg from './Components/RegistrationForm/trainerReg';
 import TeamPage from './Components/Team/team';
 import RegAdmin from './Components/RegistrationForm/adminReg';
 import newsItems from './Newticker/newticker';
+import Addstudents from './Components/RegistrationForm/addStudents';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -99,7 +100,7 @@ const currentPage=useRef()
   const getPaginate = () => {
     fetch(`https://excella-api.onrender.com/api/paginate?page=${currentPage.current}&limit=${limit}`, {
       method: 'GET',
-    }) .then((res)=> res.json())
+    }).then((res)=> res.json())
     .then((data) => {
       console.log(data, "serviceData");
       setPageCount(data.pageCount);
@@ -110,6 +111,7 @@ const currentPage=useRef()
 
   return (
     <>
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover/>
       <Navbar/>
       <Routes>
 
@@ -122,6 +124,7 @@ const currentPage=useRef()
         <Route path='/contactus' element={<ContactUs/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/student-registration' element={<Reg/>}/>
+        <Route path='/signup' element={<Addstudents/>}/>
         <Route path='/trainer-registration' element={<TrainerReg/>}/>
         <Route path='/admin-reg' element={<RegAdmin/>}/>
         <Route path='/trainer-login' element={<TrainerLogin/>}/>
@@ -129,12 +132,11 @@ const currentPage=useRef()
         <Route path='/team' element={<TeamPage/>}/>
         <Route path='/pretest' element={<PreTest/>}/>
         <Route path="/services/:title" element={<ServicesSingle services={services}/>}/>
-        <Route path='/dashboard/student' element={<Students/>}/>
+        <Route path='/dashboard/student/:studentId' element={<Students/>}/>
         <Route path='/dashboard/trainer' element={<Trainer/>}/>
         <Route path='/dashboard/admin' element={<Admin/>}/>
         <Route path='/blog' element={<Blog/>}/>
       </Routes>
-      <ToastContainer/>
       <Footer/>
     </>
   );

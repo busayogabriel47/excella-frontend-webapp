@@ -1,57 +1,79 @@
 import React,{useState, useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import '../LoginForm/login.css'
-import { Link, useLocation } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
-import { studentLogin } from '../../reduxtk/authAction'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { register } from 'react-scroll/modules/mixins/scroller'
+import axios from 'axios'
 
 
 const Login = () => {
 
-  // const [email, setEmail] = useState("")
-  // const [passsword, setPassword] = useState("")
-
-  const {error, userInfo, success, loading} = useSelector((state) => state.auth)
-  const dispatch = useDispatch()
   const navigate = useNavigate();
 
 
 
-const {register, handleSubmit, reset} = useForm()
+const {register, handleSubmit, reset, formState:{errors}} = useForm()
+const [loading, setLoadng] = useState(false);
   
-  
-//redirect authenticated trainers to trainer dashboard
+//redirect authenticated students to Students dashboard
 
 
-const submitForm = (data) => {
-  dispatch(studentLogin(data)).then(
-    (result)=> {
-      if(result.payload){
-        navigate('/dashboard/student')
-      }else if(error){
-        console.log(error)
-      }
-    }
-  )
+const submitForm = async(data, e) => {
+
+  setLoadng(true)
+
+try {
+  //Make api call to student login endpoint
+  const response = await axios.post("https://excella-api.onrender.com/api/loginStudent", data)
+
+  data.email = data.email.toLowerCase()
+
+  localStorage.setItem('user', JSON.stringify(response.data))
+  
+  if(response.data.user.isActive){
+    
+    console.log('Login successful:', response.data);
+
+    const studentId = response.data.user._id;
+    
+
+    toast.success(response.data.success);
+    setTimeout(()=> {
+      navigate(`/dashboard/student/${studentId}`);
+    }, 4000)
+    
+  }else{
+      toast.error(response.data.error || 'An error occurred. Ensure your login credentials are correct')
+  }
+  
+  console.log(response.data.user.isActive)
+} catch (error) {
+  // Handle error
+  if (error.response) {
+    console.error('Server error:', error.response.data);
+    // Set an error message for server errors
+    toast.error(error.response.data.error || 'Invalid email or password. Please try again.');
+  } else if (error.request) {
+    console.log('No response from server:', error.request);
+    // Set an error message for no response from server
+    toast.error('No response from server. Please try again later.');
+  } else {
+    console.log('Request error:', error.message);
+    // Set an error message for other errors
+    toast.error('Request error. Please try again later.');
+  }
+}finally{
+  // Set loading state to false regardless of success or error
+  setLoadng(false);
+}
+
 }
 
 
-// const handleSubmit=(e) => {
-// e.preventDefault()
-
-// dispatch(userLogin({email, passsword})).then((result)=> {
-//   if(result.payload){
-//       setEmail("")
-//       setPassword("")
-//       navigate('/dashboard/trainer')
-//   }
-// })
-
-
-// }
 
 
 
@@ -61,8 +83,6 @@ const submitForm = (data) => {
     <>
     <div className='loginWrapper'>
 
-
-      {success && <p>{success}</p>}
        <form  className="formParent" onSubmit={handleSubmit(submitForm)}>
 
         <h3 className='my-3'>Welcome back! student</h3>
@@ -78,10 +98,18 @@ const submitForm = (data) => {
             {...register("password")}
            placeholder='Password' />
 
-        <button type='submit'>{loading ? 'Loading...': 'Login'}</button>
+        <button disabled={loading} type='submit'>
+          {loading ? 
+            <div class="spinner-border m-5" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          : 'Login'}
+          </button>
 
-        {error && (<p className='alert alert-danger' role='alert'>{error}</p>)}
+        
         </div>
+
+        <p style={{color: "#030494", fontWeight: "500"}}>New enrollment? <Link to="/signup">Register here</Link></p>
        </form>
       </div>
     </>

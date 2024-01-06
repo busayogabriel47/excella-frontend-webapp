@@ -13,7 +13,7 @@ function Whychoose() {
               items: 1
             },
             450: {
-              items: 2
+              items: 1
             },
             600: {
               items: 3

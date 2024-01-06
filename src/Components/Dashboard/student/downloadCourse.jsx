@@ -1,10 +1,21 @@
+import { useState } from "react";
 import "../student/students.css"
+import { decodeToken } from "../../../Utils/AdminAuthDecode";
+import { useParams } from "react-router-dom";
 
 
 
 
-const DownloadCourse = ({filesList, errorMsg, downloadFile}) => {
-  
+const DownloadCourse = ({filesList, errorMsg, downloadFile, studentData}) => {
+
+
+
+const {cohorts} = studentData
+
+
+
+//Filter files based on the student's cohort ID
+const filteredFiles = filesList.filter((file)=> file.cohorts === cohorts)
 
   return (
     <div className="files-container">
@@ -21,8 +32,8 @@ const DownloadCourse = ({filesList, errorMsg, downloadFile}) => {
           </tr>
         </thead>
         <tbody>
-          {filesList.length > 0 ? (
-            filesList.map(
+          {filteredFiles.length > 0 ? (
+            filteredFiles.map(
               ({ _id, title, description, file_path, file_mimetype }) => (
                 <tr key={_id}>
                   <td className="file-title">{title}</td>
