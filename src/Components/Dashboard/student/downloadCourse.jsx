@@ -8,14 +8,14 @@ import { useParams } from "react-router-dom";
 
 const DownloadCourse = ({filesList, errorMsg, downloadFile, studentData}) => {
 
-
+console.log(filesList);
 
 const {cohorts} = studentData
 
-
+console.log(cohorts)
 
 //Filter files based on the student's cohort ID
-const filteredFiles = filesList.filter((file)=> file.cohorts === cohorts)
+const filteredFiles = filesList.filter((file)=> file.cohort === cohorts[0]._id)
 
   return (
     <div className="files-container">

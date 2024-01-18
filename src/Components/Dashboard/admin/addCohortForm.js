@@ -105,10 +105,10 @@ function AddCohortForm() {
                 <label for="title" class="form-label">Cohort name</label>
                 <input type="text" value={cohort.name} name='name' onChange={handleChange} class="form-control" id="title" placeholder="E.g NCLEX Beginners 1"/>
             </div>
-            <div class="mb-3">
+            {/* <div class="mb-3">
                 <label for="title" class="form-label">Cohort Pre-content test link</label>
                 <input type="url" value={cohort.formUrl} name='formUrl' onChange={handleChange} class="form-control" id="title" placeholder="E.g www.google.."/>
-            </div>
+            </div> */}
             <div class="mb-3">
                 <label for="title" class="form-label">Cohort start date</label>
                 <input type="date" value={cohort.startDate} name='startDate' onChange={handleChange} class="form-control" id="title" placeholder="12/4/2023"/>

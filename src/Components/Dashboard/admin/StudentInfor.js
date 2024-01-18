@@ -105,7 +105,7 @@ const handleActivateStudent = async (studentId, cohortId) => {
         
     </div>
     <div className="files-container text-center">
-      <table className="files-table" style={{overflowX: "auto"}}>
+      <table className="files-table" style={{overflowX: "scroll"}}>
         <thead>
           <tr>
             <th>Full name</th>

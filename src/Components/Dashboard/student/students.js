@@ -5,9 +5,10 @@ import { Navigate, useParams } from 'react-router-dom';
 import DownloadCourse from './downloadCourse';
 import download from 'downloadjs';
 import axios from 'axios';
-import PreTest from '../student/pretest';
+import Pretest from '../student/pretest';
 import {decodeToken} from "../../../Utils/StudentAuth"
 // import {loginUser} from '../../../actions/adminUser'
+import assimg from "../../../images/lab.jpg"
 
 
 export default function Students() {
@@ -16,6 +17,8 @@ export default function Students() {
     const [studentData, setStudentData] = useState(null);
     const [filesList, setFilesList] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
+    // State to track active tab
+    const [activeTab, setActiveTab] = useState(0);
 
   
     const getFilesList = async () => {
@@ -69,6 +72,37 @@ export default function Students() {
         fetchStudentData()
         getFilesList();
     }, [studentId]);
+
+
+
+    if(!studentData){
+        return(
+            <div className='dashboard' style={{width: "100%", height:'100vh' }}>
+                <div className='profile container'>
+                    <h1>Loading...</h1>
+                </div>
+                
+                </div>
+        )
+    }
+
+const {cohorts} = studentData;
+
+    //Assessment Tab
+    // Extract formUrls from all cohorts
+    const formUrls = cohorts.flatMap(cohort => cohort.formUrls);
+  
+
+// Function to handle tab change
+const handleTabChange = tabIndex => {
+    setActiveTab(tabIndex);
+  };
+
+
+
+
+
+
   
     const downloadFile = async (id, path, mimetype) => {
       try {
@@ -117,8 +151,7 @@ if(!studentData){
     )
 }
 
-  const {cohorts} = studentData;
-
+ 
 
     return (
     <div className='dashboard'>
@@ -158,20 +191,42 @@ if(!studentData){
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-complaint" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Complain</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Notice/News</button>*/}
                                         
-                                                <button class="nav-link" id="v-pills-settings-tab" 
-                                                data-bs-toggle="pill" data-bs-target="#v-pills-updates" 
-                                                type="button" role="tab" aria-controls="v-pills-settings" 
-                                                aria-selected="false">
-                                                    {
-                                                    cohorts.length > 0 ? cohorts[0].name : null
-                                                    }
-                                                </button>
-                            
-                                        
+                                        <button class="nav-link" id="v-pills-downloads-tab" data-bs-toggle="pill" data-bs-target="#v-pills-downloads" type="button" role="tab" aria-controls="v-pills-downloads" aria-selected="false">Downloads materials</button>
+                                        <p>
+                                            {/* Cohort collapse*/}
+                                            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                        {
+                                                        cohorts.length > 0 ? cohorts[0].name : null
+                                                        }
+                                            </button>
+                                        </p>
+
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+                                            {formUrls.map((formUrl, index) => (
+                                                <li className="nav-item" key={index}>
+                                                    <button
+                                                    className={`nav-link ${index === activeTab ? 'active' : ''}`}
+                                                    id={`v-pills-assessment-tab-${index}`}
+                                                    data-bs-toggle="pill"
+                                                    data-bs-target={`#v-pills-assessment-pane-${index}`}
+                                                    type="button"
+                                                    role="tab"
+                                                    aria-controls={`v-pills-assessment-pane-${index}`}
+                                                    aria-selected={index === activeTab ? 'true' : 'false'}
+                                                    onClick={() => handleTabChange(index)}
+                                                    
+                                                    >
+                                                    {`Assessment ${index + 1}`}
+                                                    </button>
+                                                </li>
+                                                ))}
+                                            </div>
+                                        </div>
                                         {/* <button class="nav-link" id="beginner-2" data-bs-toggle="pill" data-bs-target="#v-pills-beginners" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Beginners 2</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Mastery class</button>
                                         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updates" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">NCLEX Roloaded class</button>  */}
-                                        <button class="nav-link" id="v-pills-downloads-tab" data-bs-toggle="pill" data-bs-target="#v-pills-downloads" type="button" role="tab" aria-controls="v-pills-downloads" aria-selected="false">Downloads materials</button> 
+                                         
                                         <button class="nav-link" onClick={handleLogout} type="button" >Logout</button>
                                     </div>
                                 </div>
@@ -476,18 +531,38 @@ if(!studentData){
                                 <div class="tab-pane fade" id="v-pills-downloads" role="tabpanel" aria-labelledby="v-pills-downloads" tabindex="0">
                                     <div className='row'>
                                         <div className='col-12 pl-0'>
-                                                <DownloadCourse
-                                                filesList={filesList}
-                                                errorMsg={errorMsg}
-                                                downloadFile={downloadFile}
-                                                studentData={studentData}
-                                                />
+                                        <DownloadCourse
+                                            filesList={filesList}
+                                            errorMsg={errorMsg}
+                                            downloadFile={downloadFile}
+                                            studentData={studentData}
+                                        />
                                         </div>
                                     </div>
                                 </div>
                                 {/* NCLEX beginners 1*/}
-                                <div class="tab-pane fade show active" id="v-pills-updates" role="tabpanel" aria-labelledby="v-pills-complaint" tabindex="0">
-                                    <PreTest studentData={studentData}/>
+                                <div className="tab-content" id="v-pills-tabContent">
+                                {formUrls.map((formUrl, index) => (
+                                    <div
+                                        className={`tab-pane fade ${index === activeTab ? 'show active' : ''}`}
+                                        id={`v-pills-assessment-pane-${index}`}
+                                        role="tabpanel"
+                                        aria-labelledby={`v-pills-assessment-tab-${index}`}
+                                        key={index}
+                                    >
+                                        <iframe
+                                            src={formUrl}
+                                            width="100%"
+                                            height="600"
+                                            frameborder="0"
+                                            marginheight="0"
+                                            marginwidth="0"
+                                            title={`Assessment ${index + 1}`}
+                                            >
+                                        Loading…
+                                        </iframe>
+                                    </div>
+                                    ))}
                                 </div>
                                 
                             </div>

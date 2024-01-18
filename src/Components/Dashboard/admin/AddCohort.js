@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import AddCohortForm from './addCohortForm';
 import CohortData from './CohortData';
+import UploadTest from './upload-test';
 
 
 
@@ -20,6 +21,7 @@ function AddCohort() {
               Add new Cohort
               </button>
 
+            {/* Add new cohort */}
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
@@ -36,10 +38,36 @@ function AddCohort() {
                 </div>
               </div>
             </div>
+
   </div>
 </div>
 
-<CohortData/>
+<div class="row">
+            <div class="col-md-8">
+                <div class="tab-container-one">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item active"><a class="nav-link active" href="#home" role="tab" aria-controls="home" data-bs-toggle="tab">Cohorts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Pre-content assessment</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#messages" role="tab" aria-controls="messages" data-bs-toggle="tab">Messages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#settings" role="tab" aria-controls="settings" data-bs-toggle="tab">Settings</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                          <CohortData/>
+                        </div>
+                        <div class="tab-pane" style={{padding: "2rem 0"}} id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <UploadTest/>
+                          </div>
+                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                            Messages...</div>
+                        <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                            Settings...</div>
+                    </div>
+                </div>
+            </div>
+      </div>
+    
+{/* <CohortData/> */}
 </div>
 
   )

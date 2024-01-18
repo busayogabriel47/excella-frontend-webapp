@@ -37,20 +37,10 @@ return (
         <li class="nav-item">
           <Link to="/services" class="nav-link">Services</Link>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Academy
-          </a>
-          <ul class="dropdown-menu dropdown-menuOne">
-            <li><hr class="dropdown-divider"/></li>
-            <li><Link class="dropdown-item" to="/dashboard/admin">Admin-dashboad</Link></li>
-            <li><Link class="dropdown-item" to="/dashboard/student">Students-dashboad</Link></li>
-            {/* <li><Link class="dropdown-item" to="/dashboard/trainer">Trainers-dashboad</Link></li> */}
-          </ul>
-        </li>
+        
         
         <li class="nav-item">
-          <Link class="nav-link" to="/blog">Blog</Link>
+          <Link className="nav-link" to="/blog">Blog</Link>
         </li>
       </ul>
       <div class="d-flex justify-content-center">
