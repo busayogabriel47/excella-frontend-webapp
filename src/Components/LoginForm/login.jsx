@@ -3,6 +3,9 @@ import '../LoginForm/login.css'
 import { Link} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { IoMdEye } from "react-icons/io";
+import { IoMdEyeOff } from "react-icons/io";
+
 
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -18,6 +21,11 @@ const Login = () => {
 
 const {register, handleSubmit, reset, formState:{errors}} = useForm()
 const [loading, setLoadng] = useState(false);
+const [showPassword, setShowPassword] = useState(false);
+
+const togglePasswordVisibility = () => {
+  setShowPassword((prevShowPassword)=> !prevShowPassword)
+}
   
 //redirect authenticated students to Students dashboard
 
@@ -94,9 +102,22 @@ try {
            placeholder='Email' required/>
            
            <input id='password' 
-           type="password"
+           type={showPassword ? 'text' : "password"}
             {...register("password")}
            placeholder='Password' />
+
+            {
+              showPassword ? (
+                <IoMdEyeOff className='eyeOff' onClick={togglePasswordVisibility}/>
+              ):(
+                <IoMdEye className='eyeOn' onClick={togglePasswordVisibility}/>
+              )
+            }
+
+          
+          
+          
+
 
         <button disabled={loading} type='submit'>
           {loading ? 

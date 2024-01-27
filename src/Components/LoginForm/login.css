@@ -87,6 +87,17 @@ body{
         background-color: #030447;
     }
     
+    .eyeOn, .eyeOff{
+        position: absolute;
+        top: 53%;
+        left: 75%;
+    }
+
+    .adminEyeOff, .adminEyeOn{
+        position: absolute;
+        top: 56%;
+        left: 75%;
+    }
     /*.loginWrapper{
         width: 100%;
         height: 100vh;
@@ -226,5 +237,16 @@ body{
         color: #030447;
         height: 3rem;
         margin-top: 2rem;
+    }
+    .eyeOn, .eyeOff{
+        position: absolute;
+        top: 52%;
+        left: 63%;
+    }
+
+    .adminEyeOff, .adminEyeOn{
+        position: absolute;
+        top: 56%;
+        left: 63%;
     }
 }

@@ -7,6 +7,8 @@ import { adminLogin } from '../../reduxtk/authAction'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { register } from 'react-scroll/modules/mixins/scroller'
+import { IoMdEye } from "react-icons/io";
+import { IoMdEyeOff } from "react-icons/io";
 
 
 const LoginAdmin = () => {
@@ -14,6 +16,12 @@ const LoginAdmin = () => {
   const {error, userInfo, success, loading} = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword)=> !prevShowPassword)
+  }
 
 
 
@@ -54,9 +62,17 @@ const submitForm = (data) => {
            placeholder='Email' required/>
            
            <input id='password' 
-           type="password"
+           type={showPassword ? "text" : "password"}
             {...register("password")}
            placeholder='Password' />
+
+          {
+              showPassword ? (
+                <IoMdEyeOff className='adminEyeOff' onClick={togglePasswordVisibility}/>
+              ):(
+                <IoMdEye className='adminEyeOn' onClick={togglePasswordVisibility}/>
+              )
+            }
 
         <button type='submit'>{loading ? 'Loading...': 'Login'}</button>
 
