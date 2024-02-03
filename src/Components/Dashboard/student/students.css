@@ -1,0 +1,243 @@
+.dashboard{
+    
+}
+.profile {
+    background-color: #fff;
+    margin-top: 10rem;
+}
+.profileDetails{
+    display: flex;
+    background-color: #AF3693;
+    display: flex;
+    gap: 20px;
+}
+.dashMenu{
+    display: flex;
+    width: 50%;
+}
+
+.logout{
+    display: flex !important;
+    justify-content: right;
+    width: 50%;
+}
+.logout button{
+    border: 0;
+    border-radius: 0px;
+    color: #030447;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0 0.7rem;
+}
+.profileDetails h2{
+    padding: 0.3rem 0;
+    color: #fff;
+    font-size: 1.5rem;
+}
+.profileDetails p{
+    color: #b0b2c8;
+}
+.profileDetails .btn{
+    background-color: #030447;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0;
+}
+.signOut{
+    text-align: right;
+}
+
+#v-pills-tab{
+    width: 20%;
+}
+.nav-pills .nav-link, .attenAcc{
+    text-align: left;
+    font-size: 1.2rem;
+    border-radius: 0;
+    padding: 0.8rem 1.2rem;
+    background-color: #fff !important;
+    color: #030447 !important;
+}
+.offcanvas{
+    max-height: 100vh;
+    margin-top: 10rem;
+}
+.offcanvas.offcanvas-start {
+    max-width: 269px !important;
+}
+.offcanvas-title{
+    color: #030447;
+}
+.nav-pills .nav-link.active, 
+.nav-pills .show>.nav-link {
+    background-color: #EFEFEF;
+    color: #000;
+    border: 2px solid #383636;
+}
+.collapse .nav-link.active{
+    font-size: 1rem;
+    width: 100%;
+}
+.attenAcc::after{
+    content: none !important;
+}
+/* .productB{
+    display: flex;
+    border: 3px solid #EFEFEF;
+    width: 100%;
+    gap: 20px;
+}
+.profileOne, .profileTwo{
+    justify-content: space-between;
+    flex-basis: 50%;
+} */
+/* Table */
+
+.profileTb td, 
+.attendance td, 
+.time-table td{
+    padding: 0.5rem !important;
+
+}
+.productB td:first-child{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.productB td:last-child{
+    color: #00BDDB !important;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.profileTb {
+    width: 100%;
+}
+
+.attendance table,
+.time-table table{
+    width: 100%;
+}
+.time-table th{
+    font-size: 1rem;
+}
+.time-table tr td:first-child{
+    color: #030447;
+    font-weight: bold;
+}
+.attendance th{
+    font-size: 1.8rem;
+}
+.attendance th,
+.time-table th{
+    padding-bottom: 2rem;
+    color: #030447;
+    font-weight: bold;
+}
+.profile img{
+    position: relative;
+    border-radius: 50%;
+    width: 250px;
+}
+.profileOne .fa-regular{
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0rem;
+    right: 40%;
+    font-size: 2rem;
+    color: #AF3693;
+    font-weight: bold;
+}
+
+/* Complaint */
+.complaint form{
+    width: 70%;
+}
+.complaint button{
+    background-color: #030447;
+    color: #fff;
+    width: 100%;
+}
+
+/* Complaint */
+.notice{
+    border: 1px solid #030447;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.notice h2{
+    font-size: 1.5rem;
+    color: #030447;
+    font-weight: bold;
+}
+#v-pills-tab{
+    width: 100%;
+}
+.productB p{
+    font-size: 0.8rem;
+    color: green;
+}
+#v-pills-profile,
+#v-pills-home, 
+#v-pills-disabled,
+#v-pills-messages, 
+#v-pills-settings{
+
+}
+
+
+.pretTest{
+        width: 100%;
+        background-image: url('../../../images/lab.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #030447 !important;
+}
+.Uc2NEf{
+    width: 100%!important;
+}
+.UOnQub .RVEQke, .l4V7wb .Fxmcue{
+    background-color: #030447 !important;
+}
+.pretTest .RVEQke{
+    background-color: transparent !important;
+}
+
+.pretTest .test{
+    margin-top: -6rem
+}
+
+.download_heading h2{
+    font-size: 1.5rem;
+}
+tbody, td, tfoot, th, thead, tr{
+    border: 1px solid #000 !important;
+    padding: 1rem !important;
+}
+.files-container th{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.files-container{
+    margin-bottom: 5rem;
+}
+.download-btn{
+    background-color: #030447;
+    color: #fff;
+    border: 0;
+    line-height: 20px;
+    max-width: 150px;
+    max-height: 150px;
+}
+.download-btn:hover{
+    background-color: #fff;
+    color: #030447;
+    border: 1px solid #000;
+    line-height: 20px;
+    max-width: 150px;
+    max-height: 150px;
+}
+.errorMsg{color: #ff0000;}

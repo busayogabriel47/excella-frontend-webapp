@@ -1,0 +1,93 @@
+#navigation{
+    position: absolute;
+    z-index: 200;
+    top: 2rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 4px 8px -1px rgba(128, 125, 125, 0.75);
+-moz-box-shadow: 0px 4px 8px -1px rgba(128, 125, 125, 0.75);
+box-shadow: 0px 4px 8px -1px rgba(128, 125, 125, 0.75);
+border-radius: 0;
+min-width: 84%;
+height: 60px;
+}
+.navbar-brand span{
+    color: #012A4A;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.nav-item{
+    margin-right: 3rem;
+}
+.nav-item a{
+    color: #030447;
+    font-size: 1rem;
+}
+.nav-item{
+    border-bottom: 4px solid transparent;
+}
+.nav-item:hover{
+    border-bottom: 4px solid #AF3693;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+.excella-btn{
+    background-color: #AF3693;
+    margin-right: 0.4rem;
+}   
+
+.excella-btn2{
+    background-color: #030447;
+}
+
+.excella-btn, .excella-btn2{
+    color: #030447;
+    border: 2px solid #030447;
+    border-radius: 0;
+    font-size: 1rem;
+    padding: 0.2rem 0.5em;
+    background-color: transparent;
+}
+
+
+@media screen and (max-width: 790px) {
+    .navbar-nav > li > .dropdown-menu {
+        text-align: center;
+        border: 0px;
+    }
+    .dropdown-divider{
+        opacity: 0;
+    }
+    .nav-item {
+    border-bottom: 0px !important;
+    }
+    
+    #navigation{
+        height: 80px;
+    }
+    .navbar-collapse{
+        background-color: #fff;
+        padding: 1.5rem;
+        margin: 0;
+        text-align: center;
+    }
+    
+}
+
+
+@media screen and (min-width: 792px) {
+    .navbar-nav > li > .dropdown-menu {
+    margin-top: 1rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: block;
+    opacity: 0;
+    transition: ease-out 0.3s;
+    border: 0;
+    border-radius: 0px;
+}
+.dropdown:hover .dropdown-menu {
+    opacity:1;
+}
+    
+}

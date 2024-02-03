@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Dancing+Script:wght@700&family=Lora&family=Oswald:wght@600&family=Raleway:wght@600&family=Roboto:wght@400;500&display=swap');
+
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+a, p, ul li{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+@media (max-width: 765px) {
+  #navigation{
+    width: 95% !important;
+  }
+  .ctaSecond{
+    padding: 4rem !important;
+  }
+  .ctaSecond h1{
+    font-size: 2.5rem !important;
+  }
+  
+
+  /* text-align */
+   
+  .appointOne, .wswOffer,
+  .wcuOne, .wcuTwo, .privateTwo,
+  .yoeInner, .ctaSecond, .wswOfferBtn{
+    text-align: center;
+  }
+
+  form.appointForm{
+    align-items: center;
+    flex-flow:column ;
+    padding: 2rem 0;
+    margin: 0 2%;
+  }
+  .appointForm .field input{
+    width: 100%!important;
+  }
+  input#name, input#email{
+    padding: 0.6rem 0 ;
+  }
+
+  .wcuOne, .wcuTwo{
+    margin-top: 2rem;
+  }
+  .wcuBtn{
+    float: none !important;
+  } 
+  .wcuOne h2, .privateTwo h1, .wswOffer h2{
+    font-size: 2rem !important;
+  }
+  .wcuCard, #wcuColTwo {
+    width: 90% !important;
+    margin: 0 1.2rem 1.2rem 1.2rem;
+  }
+  .privateTwo{
+    padding: 2.5rem !important;
+  }
+  .youFlex{
+    flex-flow: column;
+    align-items: center;
+    gap: 1px !important;
+  }
+
+  #service{
+    padding: 1.5rem 0;
+  }
+  
+  .homeCare, .homeYellow{
+    background-color: rgba(19, 19, 20, 0.5) !important;
+    margin-top: 0rem !important;
+    width: 100% !important;
+    left: 0 !important;
+  }
+  div#testimonail{
+    margin-top: 25rem;
+  }
+  .excellaFooter{
+    height: fit-content !important;
+  }
+  .fLogo, .navigation{
+    text-align: center;
+    padding-left: 0 !important;
+    padding: 1rem 1.5rem !important;
+    margin: 0 !important;
+  }
+  .fLogo img{
+    width: 200px;
+  }
+  .fLogo .fa-solid, 
+  .navigation .fa-solid{
+    margin: 0 !important;
+  }
+  .serviceRow{
+    margin: 0 !important;
+  }
+
+  /* Contact us*/
+  .imgbg .contact{
+    margin-top: 11rem !important;
+  }
+
+  /*Navbar*/
+  .navbar-toggler {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: .5s ease-in-out;
+    
+  }
+
+  .navbar-toggler,
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler-icon:focus{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .navbar-toggler span{
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggler-icon{
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #152e45;
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+
+  /* About us */
+  .whyUs{
+    text-align: center;
+  }
+
+  .aboutDetails{
+    display: flex;
+    justify-content: space-around !important;
+}
+}

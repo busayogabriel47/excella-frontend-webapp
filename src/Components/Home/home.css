@@ -1,0 +1,420 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+#ctaBG{
+  background-image: url("../../images/ctabg.webp"), linear-gradient(rgba(214, 242, 248, 0.9),rgba(214, 242, 248,0.9));
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
+  padding-top: 7rem;  
+}
+
+#ctaBG img{
+margin-top: 2rem;
+}
+
+.ctaSecond{
+  background-color: #030447;
+  padding: 12rem 8rem 0 3rem;
+}
+.ctaSecond .fa-play {
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: 3px solid #AF3693;
+  padding: 1.1rem 1.4rem;
+}
+
+.nurseBadge {
+  background-color: #00BDDB;
+  padding: 0 0.7rem;
+  color: #fff;
+  font-size: 3rem;
+}
+.ctaSecond h1 {
+  font-size: 2.2rem;
+  color: #fff;
+  font-weight: bold;
+}
+.ctaSecond p{
+  color: #fff;
+}
+.lmBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #00BDDB;
+}
+
+/*Youtube Popup*/
+
+
+
+.appointment {
+  background: #E7F2F1;
+}
+.appointOne h2{
+  color: #030447;
+  font-weight: bold;
+}
+.aBtn a{
+  color: #AF3693 !important;
+  background-color: transparent;
+  text-decoration: none;
+}
+.aBtn{
+  border: none;
+  background-color: transparent;
+  color: #AF3693;
+}
+
+.appointForm{
+  display: flex;
+  justify-content: start;
+  padding: 3rem 0;
+  width: 100%;
+}
+.field{
+  width: 50%;
+  
+}
+.field input{
+  width: 80%;
+  padding: 0.7rem 3rem;
+  background-color: #fff;
+  margin-top: 1rem;
+}
+.field label{
+  color: #030447;
+}
+.field input, button.bookNow{
+  padding: 0.5rem 3rem;
+  border: none;
+  border-radius: 0;
+}
+ 
+input::-webkit-input-placeholder{
+  padding: 0;
+  margin: 0;
+}
+input::placeholder {
+padding-left: 0;
+margin: 0;
+}
+
+
+
+button.bookNow {
+  color: #fff;
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: 2px solid #030447;
+  color: #030447;
+  height: 3rem;
+}
+.wcuBtn
+/* WHY CHOOSE US */
+.wcuOne, .wcuTwo{
+  margin-top: 4rem;
+}
+.wcuOne h2, .privateTwo h1,
+.wswOffer h2, .general h1,
+.order-md-one h1, .whyUs h1{
+  font-size: 2.7rem;
+  font-weight: bold;
+  color: #030447;
+}
+
+.wcuBtn{
+  background-color: transparent;
+  color: #030447;
+  border: 2px solid #030447;
+  border-radius: 0;
+  padding: 0.8rem 1.2rem;
+  float: right;
+  font-weight: bold;
+}
+
+.wcuBtn a{
+  text-decoration: none;
+  color: #030447;
+}
+
+
+.wcuCard, #wcuColTwo {
+  -webkit-box-shadow: 0px 1px 11px -3px rgba(53, 52, 52, 0.75);
+  -moz-box-shadow: 0px 1px 11px -3px rgba(53, 52, 52, 0.75);
+  box-shadow: 0px 1px 11px -3px rgba(53, 52, 52, 0.75);
+  padding: 3rem 2rem;
+}
+
+.wcuCard:hover{
+  background-color: #030447;
+  color: #fff !important;
+}
+
+/*--wcu-col-One--*/
+.wcuColOne{
+  color: #030447 !important;
+}
+ 
+.wcuCard, #wcuColTwo{
+  height: 395px !important;
+}
+.wcuColOne h6{
+  
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+#wcuColTwo{
+  background-color: #030447;
+  color: #fff;
+}
+#wcuColTwo .aBtn{
+  color: #AF3693;
+}
+#wcuColTwo:hover{
+  background-color: #fff;
+  color: #000 !important;
+}
+/*Tiles design*/
+.tileOne{
+  padding:0.6rem 0.6rem 0.6rem 4rem 
+}
+.tileTwo{
+  padding:5.7rem 0.6rem 0.6rem 0.6rem 
+}
+.tileFour, .tileThree{
+  padding: 0.6rem;
+}
+
+.tileOne img, .tileTwo img,
+.tileThree img, .tileFour img{
+  border-radius: 0px;
+}
+
+/*PRIVATE COACHING DESIGN*/
+.privateTwo{
+  padding: 2.5rem 0 0 2.3rem;
+}
+.privateTwo td{
+  width: 35rem;
+}
+.privateTwo table,
+.privateTwo td {
+  border: none !important;
+}
+
+.privateTwo td h4, .itemDesc h4{
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.privateTwo td h6{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.privateTwo table{
+  margin-top: 2.5rem;
+} 
+
+/* EXPERIENCE */
+#experience, #service{
+  margin: 3rem 0;
+}
+.yoe .fa-light{
+  font-size: 3rem;
+}
+.youFlex {
+  display: flex;
+  gap: 40px;
+}
+.number p{
+  
+}
+.yoeInner img{
+  margin-top: 2rem;
+}
+.yoeInner span{
+  font-size: 4rem;
+  font-weight: bold;
+  color: #030447;
+}
+.yoeInner p{
+  color: #7F7F7F;
+  font-weight: bold;
+}
+
+/* Services */
+.wswOffer h2{
+
+}
+
+#service{
+  background-color: #E8F1F2;
+  padding: 5rem 0;
+  height: 900px;
+}
+#serviceOne, #serviceTwo,
+#serviceThree{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 250px;
+  border-radius: 0px;
+  position: relative;
+}
+
+#serviceOne{
+  background-image: url('../../images/patient1.jpg');
+}
+#serviceTwo {
+  background-image: url('../../images/patient2.jpg');
+}
+#serviceThree{
+  background-image: url('../../images/patient3.jpg');
+}
+
+.homeCare, .homeYellow{
+  text-align: center;
+  padding: 1.8rem 1.2rem 1.2rem 1.2rem;
+  margin-top: 12rem;
+  border-radius: 0px;
+  position: absolute;
+  width: 90%;
+  left: 15px;
+}
+
+.homeCare{
+  background: #fff;
+}
+.homeYellow{
+  background-color: #030447;
+}
+
+.homeYellow h2{
+  color: #fff;
+}
+
+.homeCare h2,
+.homeYellow h2{
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.homeCare h2{
+  color: #030447;
+
+} .homeYellow h2{
+  color: #fff;
+}
+.homeCare p, .homeYellow p{
+  color: #8A8A8A;
+}
+
+
+
+/* Footer*/
+
+.excellaFooter{
+  background-image: url("../../images/ctabg.webp"), linear-gradient(rgba(2, 47, 79, 0.9),rgba(2, 47, 79, 0.9));
+  background-blend-mode: overlay;
+  background-color: #030447;
+  background-position: center;
+  background-size: cover;
+}
+.navigation{
+  padding-left: 6rem;
+  padding-top: 2.9rem;
+}
+.navigation h2{
+  font-size: 1.3rem;
+  padding-bottom: 1.5rem;
+}
+
+.navigation ul li,
+.navigation h2, .fLogo p,
+.fLogo span, .navigation span{
+  font-weight: 500;
+} 
+.navigation ul{
+  list-style: none;
+  padding: 0;
+}
+
+.socials .fa-brands{
+  color: #030447;
+  background-color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-right: 0.4rem;
+}
+
+@media screen and(max-width: 790px) {
+  .homeCare{
+    margin-top: 4rem;
+  }
+}
+
+
+
+/* NewsTicker */
+
+.wrapper {
+  width: 85%;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  &:before {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    content: '';
+    background: linear-gradient(
+      90deg,
+      #fff,
+      transparent 25px,
+      transparent calc(100% - 25px),
+      #fff
+    );
+  }
+}
+
+.inner {
+  animation-duration: var(--animationDuration);
+  animation-timing-function: linear;
+}
+
+.inner.moving {
+  animation-name: moveticker;
+}
+
+.element {
+  display: inline-block;
+  padding: 0 20px;
+  font-family: 'Quicksand';
+  color: #030447;
+  font-weight: bold;
+}
+
+@keyframes moveticker {
+  0% {
+    transform: translateX(0px);
+  }
+  
+  100% {
+    transform: translateX(var(--animationDistance));
+  }
+}

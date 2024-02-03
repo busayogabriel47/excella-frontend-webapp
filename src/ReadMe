@@ -1,0 +1,8 @@
+Its a health training consultant web application built with React, Bootstrap, Nodejs/Express/MongoDB
+It serves as a platform for onboarding health practitioners for an international opportunity.
+Users allow to perform a register and authentication flow. take pre-test with admin, trainer, and student dashboard
+
+
+
+Youtube resources
+https://www.youtube.com/watch?v=sscLv7P_xDg

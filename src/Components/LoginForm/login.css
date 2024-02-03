@@ -1,0 +1,252 @@
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 767px){
+    .loginWrapper{
+        width: 100%;
+        height: 100vh;
+        background-image: url('../../images/lab.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formParent h3{
+        color: #030447;
+        font-weight: bold;
+    }
+    .loginWrapper .formParent{
+        width: 80%;
+        background-color: #ffffff;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6rem;
+    }
+    .loginWrapper .topLoginForm{
+        width: 80%;
+        height: 40vh;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: none;
+        border-bottom: 1px solid #d4d3d8;
+
+    }
+
+    .loginWrapper .formParent #mail{
+        width: 100%;
+        border-radius: 0;
+        border: 1px solid transparent;
+        background-color: transparent !important;
+        height: 3rem;
+        margin-bottom: 20px;
+        padding-left: 10px;
+
+        
+}
+.loginWrapper .formParent #password{
+    width: 100%;
+    border-radius: 0;
+    border: 1px solid transparent;
+    background-color: transparent;
+    height: 3rem;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    
+    
+}
+
+
+.loginWrapper .formParent input{
+    border-radius: 10px;
+}
+.loginWrapper .formParent span{
+    padding-left: 10px;
+    font-weight: 300;
+    color: #9ca1b7;
+}
+
+
+    .loginWrapper .formParent button{
+        width: 100%;
+        border: none;
+        color: #ffffff;
+        height: 3rem;
+        margin-top: 2rem;
+        background-color: #030447;
+    }
+    
+    .eyeOn, .eyeOff{
+        position: absolute;
+        top: 53%;
+        left: 75%;
+    }
+
+    .adminEyeOff, .adminEyeOn{
+        position: absolute;
+        top: 56%;
+        left: 75%;
+    }
+    /*.loginWrapper{
+        width: 100%;
+        height: 100vh;
+        background-image: url(https://res.cloudinary.com/ilove2support/image/upload/v1628766265/samples/ecommerce/accessories-bag.jpg);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loginWrapper .formParent{
+        width: 80%;
+        background-color: #ffffff;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loginWrapper .formParent #mail{
+        width: 20rem;
+        border: none;
+        border-bottom: 1px solid #000;
+        margin-bottom: 20px;
+        padding-left: 10px;
+}
+
+.loginWrapper .formParent #password{
+    width: 20rem;
+    border: none;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+ .loginWrapper 
+
+
+    .loginWrapper .formParent button{
+        width: 10rem;
+        border: none;
+        background-color: #008000;
+        color: #ffffff;
+        height: 3rem;
+    }*/
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1024px){
+    .loginWrapper{
+        width: 100%;
+        height: 100vh;
+        background-image: url('../../images/lab.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loginWrapper .formParent{
+        width: 40%;
+        background-color: #ffffff;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6rem;
+    }
+    .loginWrapper .topLoginForm{
+        width: 80%;
+        height: 40vh;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: none;
+        border-bottom: 1px solid #d4d3d8;
+    }
+    .formParent h3{
+        color: #030447;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .loginWrapper .formParent #mail{
+        width: 100%;
+        border-radius: 0;
+        border: 1px solid transparent;
+        background-color: transparent !important;
+        height: 3rem;
+        margin-bottom: 20px;
+        padding-left: 10px;     
+}
+.loginWrapper .formParent #password{
+    width: 100%;
+    border-radius: 0;
+    border: 1px solid transparent;
+    background-color: transparent;
+    height: 3rem;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    
+    
+}
+
+.loginWrapper .formParent #password:active{
+    border: 0;
+}
+
+.loginWrapper .formParent input{
+    border-radius: 10px;
+}
+.loginWrapper .formParent span{
+    padding-left: 10px;
+    font-weight: 300;
+    color: #9ca1b7;
+}
+
+
+    .loginWrapper .formParent button{
+        width: 100%;
+        border: 2px solid #030447;
+        background-color: transparent;
+        color: #030447;
+        height: 3rem;
+        margin-top: 2rem;
+    }
+    .eyeOn, .eyeOff{
+        position: absolute;
+        top: 52%;
+        left: 63%;
+    }
+
+    .adminEyeOff, .adminEyeOn{
+        position: absolute;
+        top: 56%;
+        left: 63%;
+    }
+}

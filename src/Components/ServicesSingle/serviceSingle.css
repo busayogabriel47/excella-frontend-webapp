@@ -1,0 +1,45 @@
+
+.serviceSingle{
+    margin-top: 12rem;
+}
+.singleTitle h1{
+    margin-bottom: 3rem;
+    font-weight: bold;
+    font-size: 3rem;
+    position: relative;
+    background-color: #030447;
+    color: #fff;
+}
+.singleTitle h1::before{
+    content: '';
+    display: block;
+    width: 150px;
+    height: 5px;
+    background-color: #AF3693;
+    left: 150px;
+    top: 50%;
+    position: absolute
+}
+
+.singleTitle h1::after{
+    content: '';
+    display: block;
+    width: 150px;
+    height: 5px;
+    background-color: #AF3693;
+    right: 150px;
+    top: 50%;
+    position: absolute
+}
+.singleTitle p{
+    font-size: 1.5rem;
+    color: #00BDDB;
+    font-weight: bold;
+}
+.singleImg{
+    border-right: 5px solid #AF3693;
+}
+.singleImg, .singleDesc{
+    padding: 2rem;
+    background-color: #00BDDB;
+}

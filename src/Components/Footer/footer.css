@@ -1,0 +1,7 @@
+.f_link{
+    text-decoration: none;
+    color: #fff;
+}
+.f_link:hover{
+    color: #AF3693;
+}
