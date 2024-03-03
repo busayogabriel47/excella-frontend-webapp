@@ -47,7 +47,7 @@ const handleSubmit = async(e) => {
       }
     };
 
-    const response = await axios.post('http://localhost:5000/api/new-password', 
+    const response = await axios.post('https://excella-api.onrender.com/api/new-password', 
     
     { 
       otp: token,

@@ -15,6 +15,8 @@ import axios from 'axios'
 
 const ForgetPassword = () => {
 
+  const navigate= useNavigate()
+
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('')
@@ -28,14 +30,14 @@ const handleSubmit = async(e) => {
   setLoading(true)
 
   try {
-    const response = await axios.post('http://localhost:5000/api/reset-password/request-token', { email });
+    const response = await axios.post('https://excella-api.onrender.com/api/reset-password/request-token', { email });
     const {token, message} = response.data
 
     localStorage.setItem('passresettoken', token)
     console.log('Response data:', response.data)
 
-    setMessage(message);
-    
+    toast.success("Password reset email sent successfully!")
+    navigate("/verification")
   } catch (error) {
     console.error('Error:', error);
     setMessage('Error requesting password reset. Please try again later.');

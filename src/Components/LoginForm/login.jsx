@@ -117,7 +117,7 @@ try {
           
           
           
-
+            <p>Forget password? reset it <Link to="/forgetpass">here</Link></p>
 
         <button disabled={loading} type='submit'>
           {loading ? 

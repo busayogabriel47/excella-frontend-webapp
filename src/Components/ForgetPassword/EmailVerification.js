@@ -38,12 +38,13 @@ const EmailVerification = () => {
           Authorization: `Bearer ${token}`
         }
       };
-      const res = await axios.post('http://localhost:5000/api/reset-password', {otp: token}, config);
+      const res = await axios.post('https://excella-api.onrender.com/api/reset-password', {otp: token}, config);
       console.log('Verification successful', res.data);
       setVerificationStatus(res.data);
 
       toast.success("Verification successful!");
 
+      navigate("/newpass")
     } catch (error) {
       toast.error('Verification failed.')
       console.log('Verification failed', error)
