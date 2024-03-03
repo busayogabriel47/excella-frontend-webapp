@@ -1,0 +1,10 @@
+@media screen and (min-width: 1024px) {
+    .blockInput{
+        display: flex;
+        gap: 10px;
+    }
+    .blockInput input{
+      width: 15% !important;
+    }
+    
+  }

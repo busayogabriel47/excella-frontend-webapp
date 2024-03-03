@@ -57,7 +57,7 @@ const fetchCohorts = async () => {
 const fetchActivatedStudents = async () => {
   try {
     // Fetch the list of activated students from the backend
-    const response = await axios.get(`http://localhost:5000/api/activated-students`);
+    const response = await axios.get(`https://excella-api.onrender.com/api/activated-students`);
 
     // Set the state with the list of activated students
     setActivatedStudents(response.data);
@@ -133,7 +133,7 @@ const handleDeactivateStudent = async (studentId) => {
     }
 
     //Deactivate the student
-    await axios.put(`http://localhost:5000/api/deactivate-student/${studentId}`, {}, {headers})
+    await axios.put(`https://excella-api.onrender.com/api/deactivate-student/${studentId}`, {}, {headers})
 
     await fetchActivatedStudents()
 

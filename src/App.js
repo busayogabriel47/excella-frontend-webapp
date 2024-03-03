@@ -25,6 +25,9 @@ import newsItems from './Newticker/newticker';
 import Addstudents from './Components/RegistrationForm/addStudents';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import EmailVerification from './Components/ForgetPassword/EmailVerification';
+import ForgetPassword from './Components/ForgetPassword/forgetPassword';
+import NewPassword from './Components/ForgetPassword/NewPassword';
 
 
 
@@ -136,7 +139,11 @@ const currentPage=useRef()
         <Route path='/dashboard/trainer' element={<Trainer/>}/>
         <Route path='/dashboard/admin' element={<Admin/>}/>
         <Route path='/blog' element={<Blog/>}/>
-      </Routes>
+        <Route path='/forgetpass' element={<ForgetPassword/>}/>    
+        <Route path='/verification' element={<EmailVerification/>}/>  
+        <Route path='/newpass' element={<NewPassword/>}/>    
+  
+        </Routes>
       <Footer/>
     </>
   );
